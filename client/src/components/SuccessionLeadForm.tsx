@@ -89,9 +89,6 @@ export default function SuccessionLeadForm() {
         return true;
 
       case 5:
-        return true;
-
-      case 6:
         if (!formData.heirName.trim()) {
           toast.error("Por favor ingresa tu nombre");
           return false;
@@ -104,6 +101,9 @@ export default function SuccessionLeadForm() {
           toast.error("Por favor ingresa tu teléfono");
           return false;
         }
+        return true;
+
+      case 6:
         return true;
 
       default:
@@ -210,12 +210,11 @@ export default function SuccessionLeadForm() {
   const handleNext = () => {
     if (!validateStep(step)) return;
 
-    if (step === 4) {
+    if (step === 5) {
       const newDiagnosis = generateDiagnosis();
       setDiagnosis(newDiagnosis);
-    }
-
-    if (step < totalSteps) {
+      setStep(6);
+    } else if (step < totalSteps) {
       setStep(step + 1);
     }
   };
@@ -227,8 +226,6 @@ export default function SuccessionLeadForm() {
   };
 
   const handleSubmit = async () => {
-    if (!validateStep(6)) return;
-
     setIsSubmitting(true);
     try {
       toast.success("¡Gracias! Nos contactaremos pronto para coordinar tu consulta.");
@@ -254,318 +251,306 @@ export default function SuccessionLeadForm() {
   };
 
   return (
-    <div className="py-16 px-4 bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="max-w-2xl mx-auto">
-        <Card className="shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-t-lg">
-            <CardTitle className="text-2xl">Diagnóstico de Sucesión</CardTitle>
-            <CardDescription className="text-blue-100">
-              Responde algunas preguntas para recibir un análisis personalizado de tu situación sucesoria
-            </CardDescription>
-          </CardHeader>
+    <div className="w-full max-w-2xl mx-auto p-4">
+      <Card className="shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-primary to-primary/80 text-white">
+          <CardTitle>Diagnóstico de Sucesión</CardTitle>
+          <CardDescription className="text-white/80">
+            Paso {step} de {totalSteps}
+          </CardDescription>
+          <Progress value={progressPercentage} className="mt-4 h-2" />
+        </CardHeader>
 
-          <CardContent className="pt-6">
-            <div className="mb-6">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-gray-700">
-                  Paso {step} de {totalSteps}
-                </span>
-                <span className="text-sm text-gray-500">{Math.round(progressPercentage)}%</span>
+        <CardContent className="pt-8">
+          {/* Step 1: ¿Hay testamento? */}
+          {step === 1 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">
+                ¿Existe testamento del fallecido?
+              </h3>
+              <div className="space-y-3">
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="hasWill"
+                    value="yes"
+                    checked={formData.hasWill === "yes"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">Sí, hay testamento</span>
+                </label>
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="hasWill"
+                    value="no"
+                    checked={formData.hasWill === "no"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">No, no hay testamento</span>
+                </label>
               </div>
-              <Progress value={progressPercentage} className="h-2" />
             </div>
+          )}
 
-            {/* Step 1: ¿Hay testamento? */}
-            {step === 1 && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">¿Hay testamento?</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Esta información es fundamental para determinar el tipo de sucesión
-                </p>
-                <div className="space-y-3">
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50">
-                    <input
-                      type="radio"
-                      name="hasWill"
-                      value="yes"
-                      checked={formData.hasWill === "yes"}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="font-medium">Sí, hay testamento</span>
-                  </label>
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50">
-                    <input
-                      type="radio"
-                      name="hasWill"
-                      value="no"
-                      checked={formData.hasWill === "no"}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="font-medium">No, no hay testamento</span>
-                  </label>
-                </div>
-              </div>
-            )}
+          {/* Step 2: ¿Quién es el fallecido? */}
+          {step === 2 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">
+                ¿Quién es el fallecido?
+              </h3>
+              <select
+                name="deceasedType"
+                value={formData.deceasedType}
+                onChange={handleInputChange}
+                className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="mother">Madre</option>
+                <option value="son">Hijo/a</option>
+                <option value="brother">Hermano/a</option>
+                <option value="uncle">Tío/a</option>
+                <option value="grandfather">Abuelo/a</option>
+              </select>
+            </div>
+          )}
 
-            {/* Step 2: Tipo de causante */}
-            {step === 2 && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">¿Quién es el fallecido?</h3>
+          {/* Step 3: Estado civil e hijos */}
+          {step === 3 && (
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                  ¿Cuál era el estado civil del fallecido?
+                </h3>
                 <select
-                  name="deceasedType"
-                  value={formData.deceasedType}
+                  name="maritalStatus"
+                  value={formData.maritalStatus}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
                 >
-                  <option value="">Selecciona relación con el fallecido</option>
-                  <option value="mother">Madre</option>
-                  <option value="son">Hijo</option>
-                  <option value="brother">Hermano/a</option>
-                  <option value="uncle">Tío/a</option>
-                  <option value="grandfather">Abuelo/a</option>
+                  <option value="">Selecciona una opción</option>
+                  <option value="married">Casado/a</option>
+                  <option value="single">Soltero/a</option>
+                  <option value="widowed">Viudo/a</option>
+                  <option value="divorced">Divorciado/a</option>
                 </select>
               </div>
-            )}
 
-            {/* Step 3: Estado civil e hijos */}
-            {step === 3 && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                    ¿Cuál era el estado civil del fallecido?
-                  </h3>
-                  <select
-                    name="maritalStatus"
-                    value={formData.maritalStatus}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="">Selecciona estado civil</option>
-                    <option value="married">Casado/a</option>
-                    <option value="single">Soltero/a</option>
-                    <option value="widowed">Viudo/a</option>
-                    <option value="divorced">Divorciado/a</option>
-                  </select>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">¿Tenía hijos?</h3>
-                  <div className="space-y-3">
-                    <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50">
-                      <input
-                        type="radio"
-                        name="hasChildren"
-                        value="yes"
-                        checked={formData.hasChildren === "yes"}
-                        onChange={handleInputChange}
-                        className="mr-3"
-                      />
-                      <span>Sí, tenía hijos</span>
-                    </label>
-                    <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50">
-                      <input
-                        type="radio"
-                        name="hasChildren"
-                        value="no"
-                        checked={formData.hasChildren === "no"}
-                        onChange={handleInputChange}
-                        className="mr-3"
-                      />
-                      <span>No, no tenía hijos</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Step 4: Acuerdo entre herederos */}
-            {step === 4 && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">¿Hay acuerdo entre herederos?</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Esto determina si se puede hacer una sucesión rápida o si se necesita partición judicial
-                </p>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                  ¿Tenía hijos?
+                </h3>
                 <div className="space-y-3">
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-green-50">
+                  <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
-                      name="heirstAgreement"
+                      name="hasChildren"
                       value="yes"
-                      checked={formData.heirstAgreement === "yes"}
+                      checked={formData.hasChildren === "yes"}
                       onChange={handleInputChange}
-                      className="mr-3"
+                      className="w-4 h-4"
                     />
-                    <span className="font-medium">Sí, todos estamos de acuerdo</span>
+                    <span className="ml-3 font-medium">Sí</span>
                   </label>
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-yellow-50">
+                  <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
-                      name="heirstAgreement"
-                      value="partial"
-                      checked={formData.heirstAgreement === "partial"}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="font-medium">Parcialmente, hay algunos desacuerdos</span>
-                  </label>
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-red-50">
-                    <input
-                      type="radio"
-                      name="heirstAgreement"
+                      name="hasChildren"
                       value="no"
-                      checked={formData.heirstAgreement === "no"}
+                      checked={formData.hasChildren === "no"}
                       onChange={handleInputChange}
-                      className="mr-3"
+                      className="w-4 h-4"
                     />
-                    <span className="font-medium">No, hay conflictos importantes</span>
+                    <span className="ml-3 font-medium">No</span>
                   </label>
                 </div>
               </div>
-            )}
-
-            {/* Step 5: Diagnóstico */}
-            {step === 5 && diagnosis && (
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Tu Análisis Personalizado</h3>
-
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-sm text-gray-600 mb-1">Tipo de Sucesión</p>
-                  <p className="text-2xl font-bold text-blue-900">{diagnosis.title}</p>
-                </div>
-
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <p className="text-sm text-gray-600 mb-2">Herederos</p>
-                  <p className="text-base font-semibold text-green-900">{diagnosis.heirs}</p>
-                </div>
-
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-3">Documentación Requerida:</p>
-                  <ul className="space-y-2">
-                    {diagnosis.requiredDocuments.map((doc, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="text-yellow-600 font-bold">•</span>
-                        <span>{doc}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                  <p className="text-sm font-semibold text-purple-900 mb-2">Costo de Consulta Inicial:</p>
-                  <p className="text-lg font-bold text-purple-900">2 JUS</p>
-                  <p className="text-xs text-purple-800 mt-2">Con análisis de documentación</p>
-                </div>
-
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-3">Próximos Pasos:</p>
-                  <ol className="space-y-2">
-                    {diagnosis.nextSteps.map((nextStep, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="font-bold text-gray-500">{i + 1}.</span>
-                        <span>{nextStep}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-
-                {diagnosis.importantNotes.length > 0 && (
-                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-orange-900 mb-3">Notas Importantes:</p>
-                    <ul className="space-y-2">
-                      {diagnosis.importantNotes.map((note, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-orange-900">
-                          <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                          <span>{note}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Step 6: Datos de contacto */}
-            {step === 6 && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Tus Datos de Contacto</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Completa tus datos para que podamos coordinar tu consulta inicial
-                </p>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Tu Nombre Completo *
-                  </label>
-                  <input
-                    type="text"
-                    name="heirName"
-                    value={formData.heirName}
-                    onChange={handleInputChange}
-                    placeholder="Tu nombre"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="heirEmail"
-                    value={formData.heirEmail}
-                    onChange={handleInputChange}
-                    placeholder="tu@email.com"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Teléfono *
-                  </label>
-                  <input
-                    type="tel"
-                    name="heirPhone"
-                    value={formData.heirPhone}
-                    onChange={handleInputChange}
-                    placeholder="+54 9 11 XXXX-XXXX"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Botones de Navegación */}
-            <div className="flex gap-3 mt-8">
-              <Button
-                variant="outline"
-                onClick={handlePrev}
-                disabled={step === 1}
-                className="flex-1"
-              >
-                <ChevronLeft size={18} className="mr-2" />
-                Anterior
-              </Button>
-
-              {step < totalSteps ? (
-                <Button onClick={handleNext} className="flex-1 bg-blue-600 hover:bg-blue-700">
-                  Siguiente
-                  <ChevronRight size={18} className="ml-2" />
-                </Button>
-              ) : (
-                <Button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="flex-1 bg-green-600 hover:bg-green-700"
-                >
-                  <CheckCircle2 size={18} className="mr-2" />
-                  {isSubmitting ? "Enviando..." : "Enviar Diagnóstico"}
-                </Button>
-              )}
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          )}
+
+          {/* Step 4: ¿Hay acuerdo entre herederos? */}
+          {step === 4 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">
+                ¿Hay acuerdo entre todos los herederos?
+              </h3>
+              <div className="space-y-3">
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="heirstAgreement"
+                    value="yes"
+                    checked={formData.heirstAgreement === "yes"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">Sí, todos están de acuerdo</span>
+                </label>
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="heirstAgreement"
+                    value="no"
+                    checked={formData.heirstAgreement === "no"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">No, hay desacuerdos</span>
+                </label>
+              </div>
+            </div>
+          )}
+
+          {/* Step 5: Datos de contacto */}
+          {step === 5 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Tus Datos de Contacto
+              </h3>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <p className="text-sm text-blue-800">
+                  <strong>Costo de consulta:</strong> 1 JUS con análisis de documentación
+                </p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Nombre completo
+                </label>
+                <input
+                  type="text"
+                  name="heirName"
+                  value={formData.heirName}
+                  onChange={handleInputChange}
+                  placeholder="Tu nombre"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="heirEmail"
+                  value={formData.heirEmail}
+                  onChange={handleInputChange}
+                  placeholder="tu@email.com"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Teléfono / WhatsApp
+                </label>
+                <input
+                  type="tel"
+                  name="heirPhone"
+                  value={formData.heirPhone}
+                  onChange={handleInputChange}
+                  placeholder="Tu teléfono"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Step 6: Diagnóstico */}
+          {step === 6 && diagnosis && (
+            <div className="space-y-6">
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-green-900 text-lg mb-2">
+                      {diagnosis.title}
+                    </h3>
+                    <p className="text-green-800 font-medium">{diagnosis.heirs}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-3">Documentación Requerida:</h4>
+                <ul className="space-y-2">
+                  {diagnosis.requiredDocuments.map((doc, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700">
+                      <span className="text-primary font-bold">•</span>
+                      <span>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-3">Próximos Pasos:</h4>
+                <ol className="space-y-2">
+                  {diagnosis.nextSteps.map((step, idx) => (
+                    <li key={idx} className="text-gray-700">
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {diagnosis.importantNotes.length > 0 && (
+                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-yellow-900 mb-2">Puntos Importantes:</h4>
+                      <ul className="space-y-1">
+                        {diagnosis.importantNotes.map((note, idx) => (
+                          <li key={idx} className="text-yellow-800 text-sm">
+                            • {note}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p className="text-sm text-blue-800">
+                  <strong>Próximo paso:</strong> Nos contactaremos a través de email y WhatsApp para coordinar tu consulta inicial.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Navigation Buttons */}
+          <div className="flex gap-3 mt-8 pt-6 border-t">
+            <Button
+              variant="outline"
+              onClick={handlePrev}
+              disabled={step === 1}
+              className="flex items-center gap-2"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Anterior
+            </Button>
+            {step < 6 ? (
+              <Button
+                onClick={handleNext}
+                className="ml-auto flex items-center gap-2"
+              >
+                Siguiente
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            ) : (
+              <Button
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="ml-auto"
+              >
+                {isSubmitting ? "Enviando..." : "Enviar Consulta"}
+              </Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

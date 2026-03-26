@@ -10,13 +10,13 @@ export default function AboutSection() {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                Sobre Mí
+                Sobre Nosotros
               </h2>
               <p className="text-lg text-foreground leading-relaxed mb-4">
-                Soy abogada desde 1997, con una trayectoria de casi 30 años dedicada al derecho laboral, donde he representado exitosamente a la parte actora en cientos de casos. Esta experiencia me ha dado una perspectiva única sobre cómo prevenir conflictos y proteger los intereses de mis clientes.
+                <strong>Dra. María Eugenia Escalante</strong> es abogada desde 1997, con casi 30 años de experiencia en derecho laboral y planificación patrimonial. Especialista en sucesiones, operaciones inmobiliarias y protección integral del patrimonio familiar.
               </p>
               <p className="text-lg text-foreground leading-relaxed">
-                Completé una diplomatura en Planificación Patrimonial, lo que me permitió ampliar mi visión hacia la protección integral del patrimonio familiar y empresarial. Hoy, he decidido reorientar mi práctica hacia el Derecho Inmobiliario y Sucesiones, donde puedo ofrecer soluciones estratégicas, preventivas y de alto valor para familias y empresarios.
+                <strong>Dr. Alberto José Estévez</strong> es especialista en derecho deportivo, laboral y empresarial, con experiencia en asesoramiento a empresas y entidades deportivas. Ambos comparten el compromiso de ofrecer soluciones estratégicas, preventivas y de alto valor para familias y empresarios.
               </p>
             </div>
 
@@ -57,9 +57,9 @@ export default function AboutSection() {
           <div className="space-y-6">
             {/* Card 1 */}
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 hover:shadow-lg transition-all">
-              <h3 className="text-xl font-bold text-primary mb-4">Mi Filosofía</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">Nuestra Filosofía</h3>
               <p className="text-foreground leading-relaxed">
-                Creo que la mejor asesoría legal es aquella que previene problemas antes de que ocurran. Por eso, mi enfoque se centra en el asesoramiento estratégico, preventivo y en la protección integral del patrimonio de mis clientes.
+                Creemos que la mejor asesoría legal es aquella que previene problemas antes de que ocurran. Por eso, nuestro enfoque se centra en el asesoramiento estratégico, preventivo y en la protección integral del patrimonio de nuestros clientes.
               </p>
             </Card>
 
@@ -69,28 +69,28 @@ export default function AboutSection() {
               <ul className="space-y-2 text-foreground">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Real Estate y Derecho Inmobiliario
+                  <strong>Dra. Escalante:</strong> Planificación Patrimonial
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Sucesiones y Planificación Patrimonial
+                  <strong>Dra. Escalante:</strong> Sucesiones e Inmobiliario
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Fideicomisos y Estructuras Patrimoniales
+                  <strong>Dr. Estévez:</strong> Derecho Deportivo
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Asesoramiento Preventivo
+                  <strong>Dr. Estévez:</strong> Derecho Empresarial
                 </li>
               </ul>
             </Card>
 
             {/* Card 3 */}
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 hover:shadow-lg transition-all">
-              <h3 className="text-xl font-bold text-primary mb-4">Compromiso</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">Nuestro Compromiso</h3>
               <p className="text-foreground leading-relaxed">
-                Confidencialidad absoluta, transparencia en los honorarios, y plazos de cobro predecibles basados en hitos claros. Tu patrimonio y tu familia merecen la mejor asesoría.
+                Confidencialidad absoluta, transparencia en los honorarios, y plazos de cobro predecibles basados en hitos claros. Tu patrimonio y tu familia merecen la mejor asesoría legal.
               </p>
             </Card>
           </div>

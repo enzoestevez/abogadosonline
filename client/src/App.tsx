@@ -7,11 +7,13 @@ import HeroSection from "./components/HeroSection";
 import RealEstateServices from "./components/RealEstateServices";
 import SuccessionServices from "./components/SuccessionServices";
 import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
+
+import CalendarBooking from "./components/CalendarBooking";
 import Footer from "./components/Footer";
+import FloatingContactButtons from "./components/FloatingContactButtons";
 import DiagnosticPage from "./pages/DiagnosticPage";
 import SuccessionPage from "./pages/SuccessionPage";
-import SuccessionLeadForm from "./components/SuccessionLeadForm";
+
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
     <ThemeProvider defaultTheme="light">
       <TooltipProvider>
         <Toaster />
+        <FloatingContactButtons />
         <Switch>
           <Route path="/" component={HomePage} />
           <Route path="/diagnostico" component={DiagnosticPage} />
@@ -38,9 +41,9 @@ function HomePage() {
         <HeroSection />
         <RealEstateServices />
         <SuccessionServices />
-        <SuccessionLeadForm />
+        <DiagnosticPage />
         <AboutSection />
-        <ContactSection />
+        <CalendarBooking />
       </main>
       <Footer />
     </div>

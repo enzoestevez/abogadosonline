@@ -10,7 +10,7 @@ export default function Header() {
     { label: "Inicio", href: "/" },
     { label: "Servicios Inmobiliarios", href: "#servicios-inmobiliarios" },
     { label: "Sucesiones", href: "#sucesiones" },
-    { label: "Sobre Mí", href: "#about" },
+    { label: "Sobre Nosotros", href: "#about" },
     { label: "Contacto", href: "#contact" },
   ];
 
@@ -19,12 +19,10 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">⚖</span>
-          </div>
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663434619169/CQG6oQ9beN45qyBHBoNTJu/escalante-estevez-logo_8c651fd4.jpg" alt="Escalante & Estévez Abogados" className="w-12 h-12 rounded-full" />
           <div>
-            <h1 className="text-lg font-bold text-primary">Abogada</h1>
-            <p className="text-xs text-muted-foreground">Inmobiliario & Sucesiones</p>
+            <h1 className="text-lg font-bold text-primary">Escalante & Estévez</h1>
+            <p className="text-xs text-muted-foreground">Abogados</p>
           </div>
         </div>
 
@@ -45,7 +43,7 @@ export default function Header() {
         <div className="hidden md:block">
           <a href="/diagnostico">
             <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold">
-              Diagnóstico Gratuito
+              Diagnóstico
             </Button>
           </a>
         </div>
@@ -75,7 +73,7 @@ export default function Header() {
             ))}
             <a href="/diagnostico" onClick={() => setIsMenuOpen(false)}>
               <Button className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold">
-                Diagnóstico Gratuito
+                Diagnóstico
               </Button>
             </a>
           </div>

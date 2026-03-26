@@ -38,7 +38,7 @@ export default function ContactSection() {
             Contacto
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Solicita tu consulta gratuita y comencemos a proteger tu patrimonio
+            Solicita tu consulta y comencemos a proteger tu patrimonio
           </p>
         </div>
 
@@ -49,8 +49,8 @@ export default function ContactSection() {
               <Phone className="text-accent" size={28} />
             </div>
             <h3 className="font-bold text-primary mb-2">Teléfono</h3>
-            <p className="text-foreground font-semibold">+54 (11) XXXX-XXXX</p>
-            <p className="text-sm text-muted-foreground mt-2">Lun-Vie 9:00-18:00</p>
+            <p className="text-foreground font-semibold">+54 9 230 448-5586</p>
+            <p className="text-sm text-muted-foreground mt-2">WhatsApp disponible</p>
           </Card>
 
           <Card className="p-8 text-center hover:shadow-lg transition-all border border-border">
@@ -58,7 +58,7 @@ export default function ContactSection() {
               <Mail className="text-accent" size={28} />
             </div>
             <h3 className="font-bold text-primary mb-2">Email</h3>
-            <p className="text-foreground font-semibold">consultas@abogada.com.ar</p>
+            <p className="text-foreground font-semibold">escalanteyestevezabogados@gmail.com</p>
             <p className="text-sm text-muted-foreground mt-2">Respuesta en 24 horas</p>
           </Card>
 
@@ -67,15 +67,15 @@ export default function ContactSection() {
               <MapPin className="text-accent" size={28} />
             </div>
             <h3 className="font-bold text-primary mb-2">Ubicación</h3>
-            <p className="text-foreground font-semibold">Buenos Aires, Argentina</p>
-            <p className="text-sm text-muted-foreground mt-2">Atención presencial y virtual</p>
+            <p className="text-foreground font-semibold">Rivadavia 576, Pte. Derqui</p>
+            <p className="text-sm text-muted-foreground mt-2">Pilar, Buenos Aires, Argentina</p>
           </Card>
         </div>
 
         {/* Contact Form */}
         <Card className="max-w-2xl mx-auto p-12 bg-white border border-border">
           <h3 className="text-2xl font-bold text-primary mb-8">
-            Solicita tu Consulta Gratuita
+            Solicita tu Consulta
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
