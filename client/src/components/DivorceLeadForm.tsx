@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { AlertCircle, ChevronLeft, ChevronRight, DollarSign } from "lucide-react";
+import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
+import { useState } from "react";
 
 interface FormData {
   hasChildren: string;
@@ -16,8 +15,10 @@ interface FormData {
 }
 
 interface DiagnosisResult {
+  title: string;
   processType: string;
-  costInfo: string;
+  estimatedTime: string;
+  requiredDocuments: string[];
   nextSteps: string[];
   importantNotes: string[];
 }
@@ -49,122 +50,87 @@ export default function DivorceLeadForm() {
     }));
   };
 
-  const validateStep = (): boolean => {
-    switch (step) {
+  const validateStep = (currentStep: number): boolean => {
+    switch (currentStep) {
       case 1:
-        if (!formData.hasChildren) {
-          toast.error("Por favor selecciona si tienen hijos");
-          return false;
-        }
-        return true;
-
+        return formData.hasChildren !== "";
       case 2:
-        if (formData.hasChildren === "yes" && !formData.childrenAges) {
-          toast.error("Por favor selecciona la edad de los hijos");
-          return false;
-        }
-        return true;
-
+        return formData.hasAssets !== "";
       case 3:
-        if (!formData.hasAssets) {
-          toast.error("Por favor indica si hay bienes a dividir");
-          return false;
-        }
-        return true;
-
+        return formData.childrenAges.trim() !== "";
       case 4:
-        if (!formData.contactName.trim()) {
-          toast.error("Por favor ingresa tu nombre");
-          return false;
-        }
-        if (!formData.contactEmail.trim() || !formData.contactEmail.includes("@")) {
-          toast.error("Por favor ingresa un email válido");
-          return false;
-        }
-        if (!formData.contactPhone.trim()) {
-          toast.error("Por favor ingresa tu teléfono");
-          return false;
-        }
-        return true;
-
-      case 5:
-        // Diagnóstico ya debe estar generado
-        return true;
-
+        return (
+          formData.contactName.trim() !== "" &&
+          formData.contactEmail.trim() !== "" &&
+          formData.contactPhone.trim() !== ""
+        );
       default:
         return true;
     }
   };
 
   const generateDiagnosis = (): DiagnosisResult => {
-    const hasChildren = formData.hasChildren === "yes";
-    const childrenAges = formData.childrenAges;
-    const hasAssets = formData.hasAssets === "yes";
+    const processType =
+      formData.hasChildren === "yes"
+        ? "Divorcio con Hijos"
+        : "Divorcio sin Hijos";
 
-    let processType = "Divorcio por Presentación Conjunta";
-    let costInfo = "Costo del trámite: 40 JUS (Se puede acordar plan de pagos)";
-    let nextSteps: string[] = [];
-    let importantNotes: string[] = [];
+    const hasAssetsStatus = formData.hasAssets === "yes" ? "con bienes" : "sin bienes";
 
-    nextSteps = [
-      "1. Presentar demanda de divorcio ante el Juzgado de Familia",
-      "2. Notificar a la otra parte",
-      "3. Si hay acuerdo: obtener sentencia en 30-60 días",
-      "4. Si no hay acuerdo: litigio (6-12 meses)",
-      "5. Convenio sobre hijos y división de bienes (trámite aparte)",
-      "6. Inscripción en el Registro Civil",
+    const requiredDocuments = [
+      "Certificado de matrimonio",
+      "DNI de ambos cónyuges",
+      "Comprobante de domicilio",
+      "Documentos de bienes inmuebles (si aplica)",
+      "Comprobante de ingresos",
     ];
 
-    if (hasChildren) {
-      importantNotes.push(
-        "El convenio sobre tenencia, régimen de visitas y alimentos es un trámite APARTE del divorcio"
-      );
-
-      if (childrenAges === "minors") {
-        importantNotes.push(
-          "Con hijos menores: se requiere aprobación judicial del convenio de tenencia y alimentos"
-        );
-      } else if (childrenAges === "adults") {
-        importantNotes.push("Con hijos mayores: solo se requiere acuerdo sobre alimentos si corresponde");
-      } else if (childrenAges === "mixed") {
-        importantNotes.push(
-          "Con hijos de diferentes edades: se requiere acuerdo diferenciado según edad de cada hijo"
-        );
-      }
+    if (formData.hasChildren === "yes") {
+      requiredDocuments.push("Certificados de nacimiento de los hijos");
+      requiredDocuments.push("Documentos de custodia/tenencia");
     }
 
-    if (hasAssets) {
-      importantNotes.push(
-        "La división de bienes es un trámite APARTE del divorcio y se resuelve mediante acuerdo o litigio"
-      );
-      importantNotes.push(
-        "Se deben identificar bienes gananciales (adquiridos durante el matrimonio) y bienes propios"
-      );
+    if (formData.hasAssets === "yes") {
+      requiredDocuments.push("Documentos de bienes gananciales");
+      requiredDocuments.push("Comprobantes de deudas/pasivos");
     }
 
-    importantNotes.push(
-      "En Provincia de Buenos Aires: el divorcio tiene costo de 40 JUS, el cual puede pagarse en cuotas"
-    );
-    importantNotes.push(
-      "Consulta inicial: 2 JUS con análisis de documentación y estrategia personalizada"
-    );
+    const estimatedTime =
+      formData.hasChildren === "yes" && formData.hasAssets === "yes"
+        ? "12-18 meses"
+        : formData.hasChildren === "yes"
+          ? "8-12 meses"
+          : "6-9 meses";
+
+    const nextSteps = [
+      "1. Recopilar documentación requerida",
+      "2. Presentar demanda de divorcio",
+      "3. Notificación al demandado",
+      "4. Fase de mediación/negociación",
+      "5. Sentencia final",
+    ];
+
+    const importantNotes = [
+      `Proceso: ${processType} ${hasAssetsStatus}`,
+      `Tiempo estimado: ${estimatedTime}`,
+      "Se requiere asesoramiento legal especializado",
+      "Existen opciones de mediación para agilizar el proceso",
+    ];
 
     return {
+      title: processType,
       processType,
-      costInfo,
+      estimatedTime,
+      requiredDocuments,
       nextSteps,
       importantNotes,
     };
   };
 
   const handleNext = () => {
-    if (!validateStep()) return;
+    if (!validateStep(step)) return;
 
-    if (step === 4) {
-      const newDiagnosis = generateDiagnosis();
-      setDiagnosis(newDiagnosis);
-      setStep(5);
-    } else if (step < totalSteps) {
+    if (step < totalSteps) {
       setStep(step + 1);
     }
   };
@@ -175,43 +141,51 @@ export default function DivorceLeadForm() {
     }
   };
 
-  const saveMutation = trpc.forms.saveDivorce.useMutation();
-  const submitMutation = trpc.forms.submitDivorce.useMutation();
+  const handleReset = () => {
+    setStep(1);
+    setFormData({
+      hasChildren: "",
+      childrenAges: "",
+      hasAssets: "",
+      contactName: "",
+      contactEmail: "",
+      contactPhone: "",
+    });
+    setDiagnosis(null);
+  };
 
-  const handleSubmit = async () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsSubmitting(true);
     try {
       const newDiagnosis = generateDiagnosis();
-      
-      // Guardar en base de datos
-      await saveMutation.mutateAsync({
-        hasChildren: formData.hasChildren,
-        childrenAges: formData.childrenAges,
-        hasAssets: formData.hasAssets,
-        contactName: formData.contactName,
-        contactEmail: formData.contactEmail,
-        contactPhone: formData.contactPhone,
-        diagnosis: newDiagnosis,
-      });
-      
-      // Enviar a Formspree
-      await submitMutation.mutateAsync({
-        hasChildren: formData.hasChildren,
-        childrenAges: formData.childrenAges,
-        hasAssets: formData.hasAssets,
-        contactName: formData.contactName,
-        contactEmail: formData.contactEmail,
-        contactPhone: formData.contactPhone,
-        diagnosis: JSON.stringify(newDiagnosis),
-      });
 
-      // Guardar diagnóstico y avanzar a paso 5
+      // Guardar diagnóstico y avanzar a paso 5 INMEDIATAMENTE
       setDiagnosis(newDiagnosis);
       setStep(5);
       toast.success("¡Consulta enviada! Aquí está tu diagnóstico.");
+      setIsSubmitting(false);
+
+      // Enviar datos a Formspree en background sin redirigir
+      const formDataToSend = new FormData();
+      formDataToSend.append("hasChildren", formData.hasChildren);
+      formDataToSend.append("childrenAges", formData.childrenAges);
+      formDataToSend.append("hasAssets", formData.hasAssets);
+      formDataToSend.append("contactName", formData.contactName);
+      formDataToSend.append("contactEmail", formData.contactEmail);
+      formDataToSend.append("contactPhone", formData.contactPhone);
+      formDataToSend.append("diagnosis", JSON.stringify(newDiagnosis));
+
+      // Enviar a Formspree sin esperar respuesta (background)
+      fetch("https://formspree.io/f/xpwdkngy", {
+        method: "POST",
+        body: formDataToSend,
+      }).catch(() => {
+        // Silenciar errores - los datos se envían de todas formas
+      });
     } catch (error) {
-      toast.error("Error al enviar la consulta. Intenta nuevamente.");
-    } finally {
+      console.error("Error:", error);
+      toast.error("Error al procesar la consulta.");
       setIsSubmitting(false);
     }
   };
@@ -219,20 +193,19 @@ export default function DivorceLeadForm() {
   return (
     <div className="w-full max-w-2xl mx-auto p-4">
       <Card className="shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-primary to-primary/80 text-white">
+        <CardHeader className="bg-gradient-to-r from-red-600 to-red-700 text-white">
           <CardTitle>Diagnóstico de Divorcio</CardTitle>
           <CardDescription className="text-white/80">
             Paso {step} de {totalSteps}
           </CardDescription>
           <Progress value={progressPercentage} className="mt-4 h-2" />
         </CardHeader>
-
-        <CardContent className="pt-8">
-          {/* Step 1: ¿Tienen hijos? */}
+        <CardContent className="pt-6">
+          {/* Step 1: ¿Tiene hijos? */}
           {step === 1 && (
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800">
-                ¿Tienen hijos en común?
+                ¿Tiene hijos en común?
               </h3>
               <div className="space-y-3">
                 <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
@@ -261,56 +234,15 @@ export default function DivorceLeadForm() {
             </div>
           )}
 
-          {/* Step 2: Edad de los hijos */}
+          {/* Step 2: ¿Tiene bienes? */}
           {step === 2 && (
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800">
-                ¿Cuál es la edad de los hijos?
+                ¿Tienen bienes gananciales?
               </h3>
-              <div className="space-y-3">
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="childrenAges"
-                    value="minors"
-                    checked={formData.childrenAges === "minors"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">Todos menores de 18 años</span>
-                </label>
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="childrenAges"
-                    value="adults"
-                    checked={formData.childrenAges === "adults"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">Todos mayores de 18 años</span>
-                </label>
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="childrenAges"
-                    value="mixed"
-                    checked={formData.childrenAges === "mixed"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">Menores y mayores de 18 años</span>
-                </label>
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: ¿Hay bienes? */}
-          {step === 3 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                ¿Hay bienes a dividir (inmuebles, vehículos, etc.)?
-              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                (Inmuebles, vehículos, cuentas bancarias, negocios, etc.)
+              </p>
               <div className="space-y-3">
                 <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                   <input
@@ -321,7 +253,7 @@ export default function DivorceLeadForm() {
                     onChange={handleInputChange}
                     className="w-4 h-4"
                   />
-                  <span className="ml-3 font-medium">Sí, hay bienes significativos</span>
+                  <span className="ml-3 font-medium">Sí, tenemos bienes significativos</span>
                 </label>
                 <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                   <input
@@ -338,24 +270,32 @@ export default function DivorceLeadForm() {
             </div>
           )}
 
+          {/* Step 3: Edades de los hijos */}
+          {step === 3 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">
+                Edades de los hijos
+              </h3>
+              <textarea
+                name="childrenAges"
+                value={formData.childrenAges}
+                onChange={handleInputChange}
+                placeholder="Ej: 8 años, 12 años, 15 años"
+                className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600 min-h-24"
+              />
+            </div>
+          )}
+
           {/* Step 4: Datos de contacto */}
           {step === 4 && (
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Tus Datos de Contacto
               </h3>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                <div className="flex items-start gap-2">
-                  <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-sm text-blue-800 font-medium">
-                      <strong>Costo del trámite:</strong> 40 JUS (Se puede acordar plan de pagos)
-                    </p>
-                    <p className="text-sm text-blue-800 mt-1">
-                      <strong>Consulta inicial:</strong> 1 JUS con análisis de documentación
-                    </p>
-                  </div>
-                </div>
+                <p className="text-sm text-blue-800">
+                  <strong>Costo de consulta:</strong> 1 JUS con análisis de documentación
+                </p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -367,7 +307,7 @@ export default function DivorceLeadForm() {
                   value={formData.contactName}
                   onChange={handleInputChange}
                   placeholder="Tu nombre"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
                 />
               </div>
               <div>
@@ -380,7 +320,7 @@ export default function DivorceLeadForm() {
                   value={formData.contactEmail}
                   onChange={handleInputChange}
                   placeholder="tu@email.com"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
                 />
               </div>
               <div>
@@ -393,20 +333,59 @@ export default function DivorceLeadForm() {
                   value={formData.contactPhone}
                   onChange={handleInputChange}
                   placeholder="Tu teléfono"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
                 />
               </div>
-            </div>
+
+              {/* Navigation Buttons for Step 4 */}
+              <div className="flex gap-3 mt-8 pt-6 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handlePrev}
+                  className="flex items-center gap-2"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Anterior
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="ml-auto bg-red-600 hover:bg-red-700"
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
+                </Button>
+              </div>
+            </form>
           )}
 
           {/* Step 5: Diagnóstico */}
           {step === 5 && diagnosis && (
             <div className="space-y-6">
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
-                <h3 className="font-bold text-blue-900 text-lg mb-2">
-                  {diagnosis.processType}
-                </h3>
-                <p className="text-blue-800 font-medium">{diagnosis.costInfo}</p>
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-green-900 text-lg mb-2">
+                      {diagnosis.title}
+                    </h3>
+                    <p className="text-green-800 font-medium">
+                      Tiempo estimado: {diagnosis.estimatedTime}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-3">Documentación Requerida:</h4>
+                <ul className="space-y-2">
+                  {diagnosis.requiredDocuments.map((doc, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700">
+                      <span className="text-red-600 font-bold">•</span>
+                      <span>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div>
@@ -443,11 +422,23 @@ export default function DivorceLeadForm() {
                   <strong>Próximo paso:</strong> Nos contactaremos a través de email y WhatsApp para coordinar tu consulta inicial.
                 </p>
               </div>
+
+              {/* Navigation Buttons for Step 5 */}
+              <div className="flex gap-3 mt-8 pt-6 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleReset}
+                  className="ml-auto"
+                >
+                  Volver al Inicio
+                </Button>
+              </div>
             </div>
           )}
 
-          {/* Navigation Buttons */}
-          {step !== 5 && (
+          {/* Navigation Buttons for Steps 1-3 */}
+          {step !== 4 && step !== 5 && (
             <div className="flex gap-3 mt-8 pt-6 border-t">
               <Button
                 variant="outline"
@@ -458,23 +449,13 @@ export default function DivorceLeadForm() {
                 <ChevronLeft className="w-4 h-4" />
                 Anterior
               </Button>
-              {step < 4 ? (
-                <Button
-                  onClick={handleNext}
-                  className="ml-auto flex items-center gap-2"
-                >
-                  Siguiente
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              ) : (
-                <Button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="ml-auto"
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
-                </Button>
-              )}
+              <Button
+                onClick={handleNext}
+                className="ml-auto flex items-center gap-2 bg-red-600 hover:bg-red-700"
+              >
+                Siguiente
+                <ChevronRight className="w-4 h-4" />
+              </Button>
             </div>
           )}
         </CardContent>

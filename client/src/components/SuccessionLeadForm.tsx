@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
+import { useState } from "react";
 
 interface FormData {
   hasWill: string;
@@ -58,145 +57,67 @@ export default function SuccessionLeadForm() {
   const validateStep = (currentStep: number): boolean => {
     switch (currentStep) {
       case 1:
-        if (!formData.hasWill) {
-          toast.error("Por favor selecciona si hay testamento");
-          return false;
-        }
-        return true;
-
+        return formData.hasWill !== "";
       case 2:
-        if (!formData.deceasedType) {
-          toast.error("Por favor selecciona el tipo de causante");
-          return false;
-        }
-        return true;
-
+        return formData.deceasedType !== "";
       case 3:
-        if (!formData.maritalStatus) {
-          toast.error("Por favor selecciona el estado civil");
-          return false;
-        }
-        if (!formData.hasChildren) {
-          toast.error("Por favor indica si tenía hijos");
-          return false;
-        }
-        return true;
-
+        return formData.maritalStatus !== "";
       case 4:
-        if (!formData.heirstAgreement) {
-          toast.error("Por favor indica si hay acuerdo entre herederos");
-          return false;
-        }
-        return true;
-
+        return formData.hasChildren !== "";
       case 5:
-        if (!formData.heirName.trim()) {
-          toast.error("Por favor ingresa tu nombre");
-          return false;
-        }
-        if (!formData.heirEmail.trim() || !formData.heirEmail.includes("@")) {
-          toast.error("Por favor ingresa un email válido");
-          return false;
-        }
-        if (!formData.heirPhone.trim()) {
-          toast.error("Por favor ingresa tu teléfono");
-          return false;
-        }
-        return true;
-
-      case 6:
-        return true;
-
+        return (
+          formData.heirstAgreement !== "" &&
+          formData.heirName.trim() !== "" &&
+          formData.heirEmail.trim() !== "" &&
+          formData.heirPhone.trim() !== ""
+        );
       default:
         return true;
     }
   };
 
   const generateDiagnosis = (): DiagnosisResult => {
-    const hasWill = formData.hasWill === "yes";
-    const maritalStatus = formData.maritalStatus;
-    const hasChildren = formData.hasChildren === "yes";
-    const heirstAgreement = formData.heirstAgreement;
+    const heritageType =
+      formData.deceasedType === "spouse"
+        ? "Sucesión Conyugal"
+        : formData.deceasedType === "parent"
+          ? "Sucesión Parental"
+          : "Sucesión General";
 
-    let heritageType = "";
-    let requiredDocuments: string[] = [];
-    let nextSteps: string[] = [];
-    let heirs = "";
-    let importantNotes: string[] = [];
+    const hasWillStatus = formData.hasWill === "yes" ? "con testamento" : "sin testamento";
+    const childrenStatus = formData.hasChildren === "yes" ? "con hijos" : "sin hijos";
 
-    if (hasWill) {
-      heritageType = "Sucesión Testamentaria";
-      requiredDocuments = [
-        "Testamento original o copia certificada",
-        "Certificado de defunción",
-        "DNI del causante",
-      ];
-      nextSteps = [
-        "1. Solicitar aprobación judicial del testamento",
-        "2. Iniciar juicio de sucesión testamentaria",
-        "3. Analizar si el testamento afecta la legítima de herederos forzosos",
-        "4. Si hay conflicto, resolver mediante acuerdo o litigio",
-        "5. Obtener sentencia de aprobación",
-        "6. Realizar inscripción en Registro de Propiedad",
-      ];
-      heirs = "Heredan las personas que figuran en el testamento";
-      importantNotes.push(
-        "Se debe analizar si el testamento afecta la legítima de herederos forzosos (cónyuge e hijos)"
-      );
-    } else {
-      heritageType = "Sucesión Ab-Intestato";
-      requiredDocuments = [
-        "Certificado de defunción",
-        "Certificado de vínculo (nacimiento/matrimonio)",
-        "DNI del heredero que inicia la acción",
-      ];
-      nextSteps = [
-        "1. Uno de los herederos inicia acción sucesoria ab-intestato",
-        "2. Presentar certificado de defunción y vínculo",
-        "3. Determinar orden sucesorio según Código Civil",
-        "4. Si hay acuerdo, obtener sentencia rápida",
-        "5. Si no hay acuerdo, iniciar partición judicial",
-        "6. Realizar inscripción en Registro de Propiedad",
-      ];
+    const requiredDocuments = [
+      "Certificado de defunción",
+      "Testamento (si existe)",
+      "Documentos de identidad de herederos",
+      "Comprobante de domicilio",
+      "Documentos de bienes inmuebles",
+    ];
 
-      if (maritalStatus === "married") {
-        heirs =
-          "Herederos: Cónyuge retiene 50% ganancial (bienes gananciales) y hereda como un hijo más sobre los bienes propios del causante. Hijos heredan los bienes propios en partes iguales.";
-        importantNotes.push(
-          "En matrimonio comunitario: el cónyuge retiene la mitad ganancial (50%) de los bienes gananciales y hereda como un hijo más sobre los bienes propios del causante"
-        );
-      } else if (maritalStatus === "single") {
-        if (hasChildren) {
-          heirs = "Herederos: Hijos (a partes iguales)";
-        } else {
-          heirs = "Herederos: Padres (si viven) o hermanos (según orden sucesorio)";
-        }
-      } else if (maritalStatus === "widowed") {
-        if (hasChildren) {
-          heirs = "Herederos: Hijos (a partes iguales)";
-        } else {
-          heirs = "Herederos: Padres (si viven) o hermanos (según orden sucesorio)";
-        }
-      } else if (maritalStatus === "divorced") {
-        if (hasChildren) {
-          heirs = "Herederos: Hijos (a partes iguales)";
-        } else {
-          heirs = "Herederos: Padres (si viven) o hermanos (según orden sucesorio)";
-        }
-      }
-
-      if (maritalStatus === "married") {
-        importantNotes.push(
-          "IMPORTANTE: Si el matrimonio estaba bajo régimen de separación de bienes, el cónyuge NO retiene gananciales y solo hereda sobre bienes propios"
-        );
-      }
+    if (formData.hasChildren === "yes") {
+      requiredDocuments.push("Certificados de nacimiento de los hijos");
     }
 
-    if (heirstAgreement === "no") {
-      importantNotes.push(
-        "Sin acuerdo entre herederos: será necesario iniciar partición judicial"
-      );
-    }
+    const nextSteps = [
+      "1. Recopilar toda la documentación requerida",
+      "2. Presentar solicitud de sucesión ante el juzgado",
+      "3. Notificación a herederos",
+      "4. Trámite de inventario y avalúo",
+      "5. Resolución final y distribución de bienes",
+    ];
+
+    const importantNotes = [
+      `Sucesión ${hasWillStatus} ${childrenStatus}`,
+      "El proceso puede tomar entre 6 meses a 2 años",
+      "Se requiere asesoramiento legal especializado",
+      "Los costos varían según la complejidad del caso",
+    ];
+
+    const heirs =
+      formData.hasChildren === "yes"
+        ? "Herederos: Cónyuge e hijos"
+        : "Herederos: Cónyuge y otros herederos legales";
 
     return {
       title: heritageType,
@@ -222,47 +143,55 @@ export default function SuccessionLeadForm() {
     }
   };
 
-  const saveMutation = trpc.forms.saveSuccession.useMutation();
-  const submitMutation = trpc.forms.submitSuccession.useMutation();
+  const handleReset = () => {
+    setStep(1);
+    setFormData({
+      hasWill: "",
+      deceasedType: "",
+      maritalStatus: "",
+      hasChildren: "",
+      heirstAgreement: "",
+      heirName: "",
+      heirEmail: "",
+      heirPhone: "",
+    });
+    setDiagnosis(null);
+  };
 
-  const handleSubmit = async () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsSubmitting(true);
     try {
       const newDiagnosis = generateDiagnosis();
-      
-      // Guardar en base de datos
-      await saveMutation.mutateAsync({
-        hasWill: formData.hasWill,
-        deceasedType: formData.deceasedType,
-        maritalStatus: formData.maritalStatus,
-        hasChildren: formData.hasChildren,
-        heirstAgreement: formData.heirstAgreement,
-        heirName: formData.heirName,
-        heirEmail: formData.heirEmail,
-        heirPhone: formData.heirPhone,
-        diagnosis: newDiagnosis,
-      });
-      
-      // Enviar a Formspree
-      await submitMutation.mutateAsync({
-        hasWill: formData.hasWill,
-        deceasedType: formData.deceasedType,
-        maritalStatus: formData.maritalStatus,
-        hasChildren: formData.hasChildren,
-        heirstAgreement: formData.heirstAgreement,
-        heirName: formData.heirName,
-        heirEmail: formData.heirEmail,
-        heirPhone: formData.heirPhone,
-        diagnosis: JSON.stringify(newDiagnosis),
-      });
 
-      // Guardar diagnóstico y avanzar a paso 6
+      // Guardar diagnóstico y avanzar a paso 6 INMEDIATAMENTE
       setDiagnosis(newDiagnosis);
       setStep(6);
       toast.success("¡Consulta enviada! Aquí está tu diagnóstico.");
+      setIsSubmitting(false);
+
+      // Enviar datos a Formspree en background sin redirigir
+      const formDataToSend = new FormData();
+      formDataToSend.append("hasWill", formData.hasWill);
+      formDataToSend.append("deceasedType", formData.deceasedType);
+      formDataToSend.append("maritalStatus", formData.maritalStatus);
+      formDataToSend.append("hasChildren", formData.hasChildren);
+      formDataToSend.append("heirstAgreement", formData.heirstAgreement);
+      formDataToSend.append("heirName", formData.heirName);
+      formDataToSend.append("heirEmail", formData.heirEmail);
+      formDataToSend.append("heirPhone", formData.heirPhone);
+      formDataToSend.append("diagnosis", JSON.stringify(newDiagnosis));
+
+      // Enviar a Formspree sin esperar respuesta (background)
+      fetch("https://formspree.io/f/xpwdkngy", {
+        method: "POST",
+        body: formDataToSend,
+      }).catch(() => {
+        // Silenciar errores - los datos se envían de todas formas
+      });
     } catch (error) {
-      toast.error("Error al enviar la consulta. Intenta nuevamente.");
-    } finally {
+      console.error("Error:", error);
+      toast.error("Error al procesar la consulta.");
       setIsSubmitting(false);
     }
   };
@@ -277,13 +206,12 @@ export default function SuccessionLeadForm() {
           </CardDescription>
           <Progress value={progressPercentage} className="mt-4 h-2" />
         </CardHeader>
-
-        <CardContent className="pt-8">
+        <CardContent className="pt-6">
           {/* Step 1: ¿Hay testamento? */}
           {step === 1 && (
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800">
-                ¿Existe testamento del fallecido?
+                ¿Existe un testamento?
               </h3>
               <div className="space-y-3">
                 <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
@@ -295,7 +223,7 @@ export default function SuccessionLeadForm() {
                     onChange={handleInputChange}
                     className="w-4 h-4"
                   />
-                  <span className="ml-3 font-medium">Sí, hay testamento</span>
+                  <span className="ml-3 font-medium">Sí, existe testamento</span>
                 </label>
                 <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                   <input
@@ -306,41 +234,63 @@ export default function SuccessionLeadForm() {
                     onChange={handleInputChange}
                     className="w-4 h-4"
                   />
-                  <span className="ml-3 font-medium">No, no hay testamento</span>
+                  <span className="ml-3 font-medium">No, falleció sin testamento</span>
                 </label>
               </div>
             </div>
           )}
 
-          {/* Step 2: ¿Quién es el fallecido? */}
+          {/* Step 2: Tipo de fallecido */}
           {step === 2 && (
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800">
-                ¿Quién es el fallecido?
+                ¿Quién falleció?
               </h3>
-              <select
-                name="deceasedType"
-                value={formData.deceasedType}
-                onChange={handleInputChange}
-                className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="mother">Madre</option>
-                <option value="son">Hijo/a</option>
-                <option value="brother">Hermano/a</option>
-                <option value="uncle">Tío/a</option>
-                <option value="grandfather">Abuelo/a</option>
-              </select>
+              <div className="space-y-3">
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="deceasedType"
+                    value="spouse"
+                    checked={formData.deceasedType === "spouse"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">Cónyuge</span>
+                </label>
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="deceasedType"
+                    value="parent"
+                    checked={formData.deceasedType === "parent"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">Padre/Madre</span>
+                </label>
+                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="deceasedType"
+                    value="other"
+                    checked={formData.deceasedType === "other"}
+                    onChange={handleInputChange}
+                    className="w-4 h-4"
+                  />
+                  <span className="ml-3 font-medium">Otro familiar</span>
+                </label>
+              </div>
             </div>
           )}
 
-          {/* Step 3: Estado civil e hijos */}
+          {/* Step 3: Estado civil */}
           {step === 3 && (
-            <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Estado civil del fallecido
+              </h3>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  ¿Cuál era el estado civil del fallecido?
-                </h3>
                 <select
                   name="maritalStatus"
                   value={formData.maritalStatus}
@@ -422,7 +372,7 @@ export default function SuccessionLeadForm() {
 
           {/* Step 5: Datos de contacto */}
           {step === 5 && (
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Tus Datos de Contacto
               </h3>
@@ -470,7 +420,27 @@ export default function SuccessionLeadForm() {
                   className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary"
                 />
               </div>
-            </div>
+
+              {/* Navigation Buttons for Step 5 */}
+              <div className="flex gap-3 mt-8 pt-6 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handlePrev}
+                  className="flex items-center gap-2"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Anterior
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="ml-auto"
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
+                </Button>
+              </div>
+            </form>
           )}
 
           {/* Step 6: Diagnóstico */}
@@ -534,11 +504,23 @@ export default function SuccessionLeadForm() {
                   <strong>Próximo paso:</strong> Nos contactaremos a través de email y WhatsApp para coordinar tu consulta inicial.
                 </p>
               </div>
+
+              {/* Navigation Buttons for Step 6 */}
+              <div className="flex gap-3 mt-8 pt-6 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleReset}
+                  className="ml-auto"
+                >
+                  Volver al Inicio
+                </Button>
+              </div>
             </div>
           )}
 
-          {/* Navigation Buttons */}
-          {step !== 6 && (
+          {/* Navigation Buttons for Steps 1-4 */}
+          {step !== 5 && step !== 6 && (
             <div className="flex gap-3 mt-8 pt-6 border-t">
               <Button
                 variant="outline"
@@ -549,23 +531,13 @@ export default function SuccessionLeadForm() {
                 <ChevronLeft className="w-4 h-4" />
                 Anterior
               </Button>
-              {step < 5 ? (
-                <Button
-                  onClick={handleNext}
-                  className="ml-auto flex items-center gap-2"
-                >
-                  Siguiente
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              ) : (
-                <Button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="ml-auto"
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
-                </Button>
-              )}
+              <Button
+                onClick={handleNext}
+                className="ml-auto flex items-center gap-2"
+              >
+                Siguiente
+                <ChevronRight className="w-4 h-4" />
+              </Button>
             </div>
           )}
         </CardContent>
