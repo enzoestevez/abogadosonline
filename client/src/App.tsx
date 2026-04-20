@@ -13,10 +13,10 @@ import Footer from "./components/Footer";
 import FloatingContactButtons from "./components/FloatingContactButtons";
 import DiagnosticPage from "./pages/DiagnosticPage";
 import SuccessionPage from "./pages/SuccessionPage";
-
 import NotFound from "./pages/NotFound";
 
 function App() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <ThemeProvider defaultTheme="light">
       <TooltipProvider>

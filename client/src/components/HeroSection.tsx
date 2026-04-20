@@ -17,7 +17,7 @@ export default function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                Protege tu patrimonio con seguridad jurídica
+                Protege tu Patrimonio con una Estructura Jurídica sólida
               </h1>
               <p className="text-xl text-white/90 font-light">
                 Asesoramiento integral en operaciones inmobiliarias, sucesiones y planificación patrimonial. 29 años de experiencia al servicio de tu familia y tu negocio.

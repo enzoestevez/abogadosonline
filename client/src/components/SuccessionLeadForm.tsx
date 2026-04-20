@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 interface FormData {
   hasWill: string;
@@ -210,11 +211,7 @@ export default function SuccessionLeadForm() {
   const handleNext = () => {
     if (!validateStep(step)) return;
 
-    if (step === 5) {
-      const newDiagnosis = generateDiagnosis();
-      setDiagnosis(newDiagnosis);
-      setStep(6);
-    } else if (step < totalSteps) {
+    if (step < totalSteps) {
       setStep(step + 1);
     }
   };
@@ -225,26 +222,46 @@ export default function SuccessionLeadForm() {
     }
   };
 
+  const saveMutation = trpc.forms.saveSuccession.useMutation();
+  const submitMutation = trpc.forms.submitSuccession.useMutation();
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      toast.success("¡Gracias! Nos contactaremos pronto para coordinar tu consulta.");
-      setTimeout(() => {
-        setStep(1);
-        setFormData({
-          hasWill: "",
-          deceasedType: "",
-          maritalStatus: "",
-          hasChildren: "",
-          heirstAgreement: "",
-          heirName: "",
-          heirEmail: "",
-          heirPhone: "",
-        });
-        setDiagnosis(null);
-      }, 2000);
+      const newDiagnosis = generateDiagnosis();
+      
+      // Guardar en base de datos
+      await saveMutation.mutateAsync({
+        hasWill: formData.hasWill,
+        deceasedType: formData.deceasedType,
+        maritalStatus: formData.maritalStatus,
+        hasChildren: formData.hasChildren,
+        heirstAgreement: formData.heirstAgreement,
+        heirName: formData.heirName,
+        heirEmail: formData.heirEmail,
+        heirPhone: formData.heirPhone,
+        diagnosis: newDiagnosis,
+      });
+      
+      // Enviar a Formspree
+      await submitMutation.mutateAsync({
+        hasWill: formData.hasWill,
+        deceasedType: formData.deceasedType,
+        maritalStatus: formData.maritalStatus,
+        hasChildren: formData.hasChildren,
+        heirstAgreement: formData.heirstAgreement,
+        heirName: formData.heirName,
+        heirEmail: formData.heirEmail,
+        heirPhone: formData.heirPhone,
+        diagnosis: JSON.stringify(newDiagnosis),
+      });
+
+      // Guardar diagnóstico y avanzar a paso 6
+      setDiagnosis(newDiagnosis);
+      setStep(6);
+      toast.success("¡Consulta enviada! Aquí está tu diagnóstico.");
     } catch (error) {
-      toast.error("Error al enviar el formulario. Intenta nuevamente.");
+      toast.error("Error al enviar la consulta. Intenta nuevamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -521,34 +538,36 @@ export default function SuccessionLeadForm() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex gap-3 mt-8 pt-6 border-t">
-            <Button
-              variant="outline"
-              onClick={handlePrev}
-              disabled={step === 1}
-              className="flex items-center gap-2"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Anterior
-            </Button>
-            {step < 6 ? (
+          {step !== 6 && (
+            <div className="flex gap-3 mt-8 pt-6 border-t">
               <Button
-                onClick={handleNext}
-                className="ml-auto flex items-center gap-2"
+                variant="outline"
+                onClick={handlePrev}
+                disabled={step === 1}
+                className="flex items-center gap-2"
               >
-                Siguiente
-                <ChevronRight className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4" />
+                Anterior
               </Button>
-            ) : (
-              <Button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className="ml-auto"
-              >
-                {isSubmitting ? "Enviando..." : "Enviar Consulta"}
-              </Button>
-            )}
-          </div>
+              {step < 5 ? (
+                <Button
+                  onClick={handleNext}
+                  className="ml-auto flex items-center gap-2"
+                >
+                  Siguiente
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="ml-auto"
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
+                </Button>
+              )}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

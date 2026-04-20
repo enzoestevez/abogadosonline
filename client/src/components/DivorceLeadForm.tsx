@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress";
 import { AlertCircle, ChevronLeft, ChevronRight, DollarSign } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 interface FormData {
   hasChildren: string;
@@ -174,24 +175,42 @@ export default function DivorceLeadForm() {
     }
   };
 
+  const saveMutation = trpc.forms.saveDivorce.useMutation();
+  const submitMutation = trpc.forms.submitDivorce.useMutation();
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      toast.success("¡Gracias! Nos contactaremos pronto para coordinar tu consulta.");
-      setTimeout(() => {
-        setStep(1);
-        setFormData({
-          hasChildren: "",
-          childrenAges: "",
-          hasAssets: "",
-          contactName: "",
-          contactEmail: "",
-          contactPhone: "",
-        });
-        setDiagnosis(null);
-      }, 2000);
+      const newDiagnosis = generateDiagnosis();
+      
+      // Guardar en base de datos
+      await saveMutation.mutateAsync({
+        hasChildren: formData.hasChildren,
+        childrenAges: formData.childrenAges,
+        hasAssets: formData.hasAssets,
+        contactName: formData.contactName,
+        contactEmail: formData.contactEmail,
+        contactPhone: formData.contactPhone,
+        diagnosis: newDiagnosis,
+      });
+      
+      // Enviar a Formspree
+      await submitMutation.mutateAsync({
+        hasChildren: formData.hasChildren,
+        childrenAges: formData.childrenAges,
+        hasAssets: formData.hasAssets,
+        contactName: formData.contactName,
+        contactEmail: formData.contactEmail,
+        contactPhone: formData.contactPhone,
+        diagnosis: JSON.stringify(newDiagnosis),
+      });
+
+      // Guardar diagnóstico y avanzar a paso 5
+      setDiagnosis(newDiagnosis);
+      setStep(5);
+      toast.success("¡Consulta enviada! Aquí está tu diagnóstico.");
     } catch (error) {
-      toast.error("Error al enviar el formulario. Intenta nuevamente.");
+      toast.error("Error al enviar la consulta. Intenta nuevamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -428,34 +447,36 @@ export default function DivorceLeadForm() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex gap-3 mt-8 pt-6 border-t">
-            <Button
-              variant="outline"
-              onClick={handlePrev}
-              disabled={step === 1}
-              className="flex items-center gap-2"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Anterior
-            </Button>
-            {step < 5 ? (
+          {step !== 5 && (
+            <div className="flex gap-3 mt-8 pt-6 border-t">
               <Button
-                onClick={handleNext}
-                className="ml-auto flex items-center gap-2"
+                variant="outline"
+                onClick={handlePrev}
+                disabled={step === 1}
+                className="flex items-center gap-2"
               >
-                Siguiente
-                <ChevronRight className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4" />
+                Anterior
               </Button>
-            ) : (
-              <Button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className="ml-auto"
-              >
-                {isSubmitting ? "Enviando..." : "Enviar Consulta"}
-              </Button>
-            )}
-          </div>
+              {step < 4 ? (
+                <Button
+                  onClick={handleNext}
+                  className="ml-auto flex items-center gap-2"
+                >
+                  Siguiente
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="ml-auto"
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
+                </Button>
+              )}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
