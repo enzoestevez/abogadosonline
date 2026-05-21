@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import FloatingContactButtons from "./components/FloatingContactButtons";
 import DiagnosticPage from "./pages/DiagnosticPage";
 import SuccessionPage from "./pages/SuccessionPage";
+import TermsAndPrivacy from "./pages/TermsAndPrivacy";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" component={HomePage} />
           <Route path="/diagnostico" component={DiagnosticPage} />
           <Route path="/sucesion" component={SuccessionPage} />
+          <Route path="/terms" component={TermsAndPrivacy} />
           <Route component={NotFound} />
         </Switch>
       </TooltipProvider>

@@ -36,6 +36,7 @@ export default function DivorceLeadForm() {
 
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const totalSteps = 5;
   const progressPercentage = (step / totalSteps) * 100;
@@ -294,7 +295,7 @@ export default function DivorceLeadForm() {
               </h3>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Costo de consulta:</strong> 1 JUS con análisis de documentación
+                  Completa tus Datos de Contacto y recibiras el informe preliminar a fin de coordinar consulta
                 </p>
               </div>
               <div>
@@ -337,6 +338,21 @@ export default function DivorceLeadForm() {
                 />
               </div>
 
+              {/* Términos y Condiciones */}
+              <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4 mt-6">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={acceptedTerms}
+                    onChange={(e) => setAcceptedTerms(e.target.checked)}
+                    className="w-5 h-5 mt-1 rounded border-gray-300"
+                  />
+                  <span className="text-sm text-gray-700">
+                    Acepto la <a href="/terms" target="_blank" className="text-blue-600 hover:underline font-semibold">Política de Privacidad y Términos y Condiciones</a>. Entiendo que mis datos serán utilizados como información de contacto para procesar mi consulta y que puedo solicitar la baja en cualquier momento.
+                  </span>
+                </label>
+              </div>
+
               {/* Navigation Buttons for Step 4 */}
               <div className="flex gap-3 mt-8 pt-6 border-t">
                 <Button
@@ -350,8 +366,9 @@ export default function DivorceLeadForm() {
                 </Button>
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !acceptedTerms}
                   className="ml-auto bg-red-600 hover:bg-red-700"
+                  title={!acceptedTerms ? "Debes aceptar los términos y condiciones" : ""}
                 >
                   {isSubmitting ? "Enviando..." : "Enviar Consulta"}
                 </Button>

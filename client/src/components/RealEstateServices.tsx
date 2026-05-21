@@ -7,28 +7,28 @@ const services = [
     title: "Análisis de Títulos y Cargas",
     description: "Revisión exhaustiva de títulos de propiedad, gravámenes, hipotecas y cualquier carga que afecte el inmueble. Identificamos riesgos legales antes de cualquier operación.",
     highlights: ["Análisis de títulos", "Identificación de gravámenes", "Certificado de dominio"],
-    honorarios: "5 a 10 UMA/JUS",
+    honorarios: "",
   },
   {
     icon: Building2,
     title: "Compraventa de Inmuebles",
     description: "Redacción y asesoramiento en boletos de compraventa, escrituras públicas y contratos inmobiliarios con cláusulas de protección para ambas partes.",
     highlights: ["Boletos de compraventa", "Escrituras públicas", "Protección contractual"],
-    honorarios: "1% a 5% de la operación",
+    honorarios: "",
   },
   {
     icon: FileText,
     title: "Contratos de Locación",
     description: "Elaboración de contratos de alquiler con cláusulas claras, protección de derechos del propietario y cumplimiento de normativas vigentes.",
     highlights: ["Contratos comerciales", "Locaciones residenciales", "Garantías"],
-    honorarios: "Honorario fijo según complejidad",
+    honorarios: "",
   },
   {
     icon: TrendingUp,
     title: "Asesoramiento Inmobiliario",
     description: "Consultoría integral para operaciones inmobiliarias, análisis de viabilidad legal y estrategia para maximizar protección patrimonial.",
     highlights: ["Análisis de operaciones", "Evaluación de riesgos", "Estrategia legal"],
-    honorarios: "Honorario fijo o por hito",
+    honorarios: "",
   },
 ];
 

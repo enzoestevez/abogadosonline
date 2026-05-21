@@ -7,28 +7,28 @@ const services = [
     title: "Sucesiones Judiciales y Extrajudiciales",
     description: "Tramitación completa de sucesiones ab intestato o testamentarias con gestión de tracto abreviado para venta.",
     highlights: ["Declaratoria de herederos", "Inscripción de bienes", "Tracto abreviado"],
-    honorarios: "6% a 15% del valor de bienes",
+    honorarios: "",
   },
   {
     icon: Heart,
     title: "Partición Privada de Herencia",
     description: "Negociación y redacción de acuerdos entre coherederos, evitando procesos judiciales contenciosos.",
     highlights: ["Acuerdos entre herederos", "Adjudicación ágil", "Sin conflictos"],
-    honorarios: "2% a 4% del patrimonio",
+    honorarios: "",
   },
   {
     icon: Zap,
     title: "Planificación Sucesoria Preventiva",
     description: "Diseño de estrategias para transmisión ordenada del patrimonio en vida, con donaciones y fideicomisos.",
     highlights: ["Donaciones con usufructo", "Testamentos estratégicos", "Fideicomisos familiares"],
-    honorarios: "Monto fijo por estrategia",
+    honorarios: "",
   },
   {
     icon: Shield,
     title: "Gestión Patrimonial Familiar",
     description: "Asesoramiento continuo post-sucesión sobre administración de bienes y reinversión de capital.",
     highlights: ["Administración de bienes", "Contratos de locación", "Reinversión"],
-    honorarios: "Abono mensual o por operación",
+    honorarios: "",
   },
 ];
 
