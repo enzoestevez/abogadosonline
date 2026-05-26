@@ -8,7 +8,7 @@ export default function Footer() {
   const instagramUrl = "https://instagram.com/escalanteyestevezabogados";
 
   return (
-    <footer className="bg-primary text-white">
+    <footer id="contact" className="bg-primary text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
