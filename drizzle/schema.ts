@@ -58,3 +58,21 @@ export const divorceConsultations = mysqlTable("divorce_consultations", {
 
 export type DivorceConsultation = typeof divorceConsultations.$inferSelect;
 export type InsertDivorceConsultation = typeof divorceConsultations.$inferInsert;
+
+// Tabla para guardar citas agendadas
+export const appointments = mysqlTable("appointments", {
+  id: int("id").autoincrement().primaryKey(),
+  consultationType: varchar("consultationType", { length: 50 }).notNull(), // sucesiones, divorcios, etc
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  clientEmail: varchar("clientEmail", { length: 320 }).notNull(),
+  clientPhone: varchar("clientPhone", { length: 20 }).notNull(),
+  appointmentDate: varchar("appointmentDate", { length: 10 }).notNull(), // YYYY-MM-DD
+  appointmentTime: varchar("appointmentTime", { length: 5 }).notNull(), // HH:MM
+  status: mysqlEnum("status", ["pending", "confirmed", "completed", "cancelled"]).default("pending").notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Appointment = typeof appointments.$inferSelect;
+export type InsertAppointment = typeof appointments.$inferInsert;

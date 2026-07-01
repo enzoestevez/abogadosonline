@@ -124,3 +124,47 @@ export async function saveDivorceConsultation(data: InsertDivorceConsultation) {
     throw error;
   }
 }
+
+export async function saveAppointment(data: any) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot save appointment: database not available");
+    return null;
+  }
+
+  try {
+    const { appointments } = await import("../drizzle/schema");
+    const result = await db.insert(appointments).values(data);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to save appointment:", error);
+    throw error;
+  }
+}
+
+export async function getAppointmentsByDateAndTime(date: string, time: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get appointments: database not available");
+    return [];
+  }
+
+  try {
+    const { appointments } = await import("../drizzle/schema");
+    const { and } = await import("drizzle-orm");
+    const result = await db
+      .select()
+      .from(appointments)
+      .where(
+        and(
+          eq(appointments.appointmentDate, date),
+          eq(appointments.appointmentTime, time),
+          eq(appointments.status, "confirmed")
+        )
+      );
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to get appointments:", error);
+    return [];
+  }
+}

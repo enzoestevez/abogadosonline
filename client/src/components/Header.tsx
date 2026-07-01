@@ -10,8 +10,8 @@ export default function Header() {
     { label: "Inicio", href: "/" },
     { label: "Servicios Inmobiliarios", href: "#servicios-inmobiliarios" },
     { label: "Sucesiones", href: "#sucesiones" },
+    { label: "Especializaciones", href: "#landing-pages-grid" },
     { label: "Sobre Nosotros", href: "#about" },
-    { label: "Contacto", href: "#contact" },
   ];
 
   return (
@@ -27,12 +27,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -40,7 +40,7 @@ export default function Header() {
         </nav>
 
         {/* CTA Button - Desktop */}
-        <div className="hidden md:block">
+        <div className="hidden md:block ml-8">
           <a href="/diagnostico">
             <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold">
               Diagnóstico

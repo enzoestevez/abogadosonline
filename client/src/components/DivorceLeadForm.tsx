@@ -1,50 +1,162 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface FormData {
-  hasChildren: string;
-  childrenAges: string;
-  hasAssets: string;
-  contactName: string;
-  contactEmail: string;
-  contactPhone: string;
+  [key: string]: string;
 }
 
 interface DiagnosisResult {
   title: string;
-  processType: string;
-  estimatedTime: string;
+  description: string;
   requiredDocuments: string[];
   nextSteps: string[];
   importantNotes: string[];
 }
 
-export default function DivorceLeadForm() {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
-    hasChildren: "",
-    childrenAges: "",
-    hasAssets: "",
-    contactName: "",
-    contactEmail: "",
-    contactPhone: "",
-  });
+interface DivorceLeadFormProps {
+  consultationType?: string;
+}
 
+// Definir preguntas específicas por tipo de consulta
+const consultationQuestions: Record<string, Array<{
+  name: string;
+  label: string;
+  options: Array<{ value: string; label: string }>;
+}>> = {
+  divorcios: [
+    {
+      name: "type",
+      label: "¿Qué tipo de divorcio necesitas?",
+      options: [
+        { value: "mutual", label: "Divorcio por mutuo acuerdo" },
+        { value: "contested", label: "Divorcio contencioso" },
+        { value: "express", label: "Divorcio exprés" }
+      ]
+    },
+    {
+      name: "children",
+      label: "¿Tienes hijos menores?",
+      options: [
+        { value: "yes", label: "Sí" },
+        { value: "no", label: "No" }
+      ]
+    },
+    {
+      name: "assets",
+      label: "¿Hay bienes para repartir?",
+      options: [
+        { value: "yes", label: "Sí, varios" },
+        { value: "few", label: "Pocos bienes" },
+        { value: "no", label: "No hay bienes" }
+      ]
+    }
+  ],
+  alimentos: [
+    {
+      name: "situation",
+      label: "¿Cuál es tu situación?",
+      options: [
+        { value: "claim", label: "Reclamar pensión alimenticia" },
+        { value: "modify", label: "Modificar pensión existente" },
+        { value: "suspend", label: "Suspender/Eliminar pensión" }
+      ]
+    },
+    {
+      name: "children",
+      label: "¿Cuántos hijos menores hay?",
+      options: [
+        { value: "one", label: "1 hijo" },
+        { value: "two", label: "2 hijos" },
+        { value: "more", label: "Más de 2 hijos" }
+      ]
+    },
+    {
+      name: "income",
+      label: "¿Conoces el ingreso del obligado?",
+      options: [
+        { value: "yes", label: "Sí, aproximadamente" },
+        { value: "no", label: "No, necesito investigar" },
+        { value: "uncertain", label: "No estoy seguro" }
+      ]
+    }
+  ],
+  custodia: [
+    {
+      name: "type",
+      label: "¿Qué tipo de custodia buscas?",
+      options: [
+        { value: "shared", label: "Custodia compartida" },
+        { value: "exclusive", label: "Custodia exclusiva" },
+        { value: "modify", label: "Modificar custodia existente" }
+      ]
+    },
+    {
+      name: "children",
+      label: "¿Cuántos hijos menores hay?",
+      options: [
+        { value: "one", label: "1 hijo" },
+        { value: "two", label: "2 hijos" },
+        { value: "more", label: "Más de 2 hijos" }
+      ]
+    },
+    {
+      name: "agreement",
+      label: "¿Hay acuerdo con el otro progenitor?",
+      options: [
+        { value: "yes", label: "Sí, hay acuerdo" },
+        { value: "partial", label: "Acuerdo parcial" },
+        { value: "no", label: "No hay acuerdo" }
+      ]
+    }
+  ],
+  inmobiliario: [
+    {
+      name: "issue",
+      label: "¿Cuál es el problema inmobiliario?",
+      options: [
+        { value: "contract", label: "Revisión de contrato" },
+        { value: "boleto", label: "Boleto de compraventa" },
+        { value: "eviction", label: "Desalojo" },
+        { value: "dispute", label: "Disputa de propiedad" }
+      ]
+    },
+    {
+      name: "stage",
+      label: "¿En qué etapa está el conflicto?",
+      options: [
+        { value: "early", label: "Etapa temprana" },
+        { value: "negotiation", label: "En negociación" },
+        { value: "legal", label: "Ya en proceso legal" }
+      ]
+    },
+    {
+      name: "urgency",
+      label: "¿Cuál es tu nivel de urgencia?",
+      options: [
+        { value: "immediate", label: "Inmediato" },
+        { value: "soon", label: "Próximas semanas" },
+        { value: "planning", label: "Planificación" }
+      ]
+    }
+  ]
+};
+
+export default function DivorceLeadForm({ consultationType = "divorcios" }: DivorceLeadFormProps) {
+  const questions = consultationQuestions[consultationType] || consultationQuestions.divorcios;
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState<FormData>({});
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
-  const totalSteps = 5;
+  const totalSteps = questions.length + 1; // +1 para datos de contacto
   const progressPercentage = (step / totalSteps) * 100;
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
+  const handleInputChange = (name: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -52,84 +164,120 @@ export default function DivorceLeadForm() {
   };
 
   const validateStep = (currentStep: number): boolean => {
-    switch (currentStep) {
-      case 1:
-        return formData.hasChildren !== "";
-      case 2:
-        return formData.hasAssets !== "";
-      case 3:
-        return formData.childrenAges.trim() !== "";
-      case 4:
-        return (
-          formData.contactName.trim() !== "" &&
-          formData.contactEmail.trim() !== "" &&
-          formData.contactPhone.trim() !== ""
-        );
-      default:
-        return true;
+    if (currentStep === totalSteps) {
+      return formData.name?.trim() !== "" && formData.email?.trim() !== "" && formData.phone?.trim() !== "";
     }
+    if (currentStep <= questions.length) {
+      const question = questions[currentStep - 1];
+      return formData[question.name] !== "";
+    }
+    return true;
   };
 
   const generateDiagnosis = (): DiagnosisResult => {
-    const processType =
-      formData.hasChildren === "yes"
-        ? "Divorcio con Hijos"
-        : "Divorcio sin Hijos";
-
-    const hasAssetsStatus = formData.hasAssets === "yes" ? "con bienes" : "sin bienes";
-
-    const requiredDocuments = [
-      "Certificado de matrimonio",
-      "DNI de ambos cónyuges",
-      "Comprobante de domicilio",
-      "Documentos de bienes inmuebles (si aplica)",
-      "Comprobante de ingresos",
-    ];
-
-    if (formData.hasChildren === "yes") {
-      requiredDocuments.push("Certificados de nacimiento de los hijos");
-      requiredDocuments.push("Documentos de custodia/tenencia");
-    }
-
-    if (formData.hasAssets === "yes") {
-      requiredDocuments.push("Documentos de bienes gananciales");
-      requiredDocuments.push("Comprobantes de deudas/pasivos");
-    }
-
-    const estimatedTime =
-      formData.hasChildren === "yes" && formData.hasAssets === "yes"
-        ? "12-18 meses"
-        : formData.hasChildren === "yes"
-          ? "8-12 meses"
-          : "6-9 meses";
-
-    const nextSteps = [
-      "1. Recopilar documentación requerida",
-      "2. Presentar demanda de divorcio",
-      "3. Notificación al demandado",
-      "4. Fase de mediación/negociación",
-      "5. Sentencia final",
-    ];
-
-    const importantNotes = [
-      `Proceso: ${processType} ${hasAssetsStatus}`,
-      `Tiempo estimado: ${estimatedTime}`,
-      "Se requiere asesoramiento legal especializado",
-      "Existen opciones de mediación para agilizar el proceso",
-    ];
-
-    return {
-      title: processType,
-      processType,
-      estimatedTime,
-      requiredDocuments,
-      nextSteps,
-      importantNotes,
+    const diagnoses: Record<string, DiagnosisResult> = {
+      divorcios: {
+        title: "Diagnóstico de Divorcio",
+        description: `Tipo: ${formData.type}, ${formData.children === "yes" ? "con hijos" : "sin hijos"}, ${formData.assets !== "no" ? "con bienes" : "sin bienes"}.`,
+        requiredDocuments: [
+          "Partida de matrimonio",
+          "Documentos de identidad",
+          "Comprobante de domicilio",
+          formData.children === "yes" ? "Partidas de nacimiento de hijos" : "",
+          "Documentos de bienes (si aplica)"
+        ].filter(Boolean),
+        nextSteps: [
+          "1. Análisis de situación",
+          "2. Negociación o preparación de demanda",
+          "3. Presentación ante juzgado",
+          "4. Trámite legal",
+          "5. Sentencia de divorcio"
+        ],
+        importantNotes: [
+          "Plazo estimado: 3-12 meses",
+          "Protegemos tus derechos",
+          "Asesoramiento integral en todo el proceso"
+        ]
+      },
+      alimentos: {
+        title: "Diagnóstico de Pensión Alimenticia",
+        description: `Situación: ${formData.situation}, ${formData.children} menores, ingresos ${formData.income}.`,
+        requiredDocuments: [
+          "Partida de nacimiento de hijos",
+          "Documentos de identidad",
+          "Comprobante de ingresos",
+          "Comprobante de gastos",
+          "Información del obligado (si se conoce)"
+        ],
+        nextSteps: [
+          "1. Cálculo de pensión",
+          "2. Recopilación de pruebas",
+          "3. Presentación de demanda",
+          "4. Trámite judicial",
+          "5. Sentencia y ejecución"
+        ],
+        importantNotes: [
+          "Protegemos los derechos de los menores",
+          "Cálculo justo según ingresos",
+          "Seguimiento de cumplimiento"
+        ]
+      },
+      custodia: {
+        title: "Diagnóstico de Custodia de Hijos",
+        description: `Tipo: ${formData.type}, ${formData.children} menores, acuerdo: ${formData.agreement}.`,
+        requiredDocuments: [
+          "Partida de nacimiento de hijos",
+          "Documentos de identidad de ambos progenitores",
+          "Comprobante de domicilio",
+          "Información sobre vivienda",
+          "Documentos escolares"
+        ],
+        nextSteps: [
+          "1. Análisis de interés superior del menor",
+          "2. Negociación de acuerdo",
+          "3. Presentación ante juzgado",
+          "4. Evaluación de capacidades",
+          "5. Sentencia de custodia"
+        ],
+        importantNotes: [
+          "Prioridad: bienestar del menor",
+          "Custodia compartida es preferida",
+          "Régimen de visitas justo"
+        ]
+      },
+      inmobiliario: {
+        title: "Diagnóstico de Conflicto Inmobiliario",
+        description: `Problema: ${formData.issue}, etapa: ${formData.stage}, urgencia: ${formData.urgency}.`,
+        requiredDocuments: [
+          "Contrato de compraventa",
+          "Boleto de compraventa",
+          "Documentos de propiedad",
+          "Comprobante de pagos",
+          "Correspondencia relacionada"
+        ],
+        nextSteps: [
+          "1. Análisis de documentos",
+          "2. Evaluación de derechos",
+          "3. Negociación o demanda",
+          "4. Trámite legal",
+          "5. Resolución"
+        ],
+        importantNotes: [
+          "Protección de tu inversión",
+          "Análisis completo de contratos",
+          "Defensa de derechos inmobiliarios"
+        ]
+      }
     };
+
+    return diagnoses[consultationType] || diagnoses.divorcios;
   };
 
   const handleNext = () => {
-    if (!validateStep(step)) return;
+    if (!validateStep(step)) {
+      toast.error("Por favor completa este campo");
+      return;
+    }
 
     if (step < totalSteps) {
       setStep(step + 1);
@@ -142,341 +290,251 @@ export default function DivorceLeadForm() {
     }
   };
 
-  const handleReset = () => {
-    setStep(1);
-    setFormData({
-      hasChildren: "",
-      childrenAges: "",
-      hasAssets: "",
-      contactName: "",
-      contactEmail: "",
-      contactPhone: "",
-    });
-    setDiagnosis(null);
-  };
+  const handleSubmit = async () => {
+    if (!validateStep(step)) {
+      toast.error("Por favor completa todos los campos");
+      return;
+    }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    if (!acceptedTerms) {
+      toast.error("Debes aceptar los términos y condiciones");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      const newDiagnosis = generateDiagnosis();
-
-      // Guardar diagnóstico y avanzar a paso 5 INMEDIATAMENTE
-      setDiagnosis(newDiagnosis);
-      setStep(5);
-      toast.success("¡Consulta enviada! Aquí está tu diagnóstico.");
-      setIsSubmitting(false);
-
-      // Enviar datos a Formspree en background sin redirigir
-      const formDataToSend = new FormData();
-      formDataToSend.append("hasChildren", formData.hasChildren);
-      formDataToSend.append("childrenAges", formData.childrenAges);
-      formDataToSend.append("hasAssets", formData.hasAssets);
-      formDataToSend.append("contactName", formData.contactName);
-      formDataToSend.append("contactEmail", formData.contactEmail);
-      formDataToSend.append("contactPhone", formData.contactPhone);
-      formDataToSend.append("diagnosis", JSON.stringify(newDiagnosis));
-
-      // Enviar a Formspree sin esperar respuesta (background)
-      fetch("https://formspree.io/f/xpwdkngy", {
-        method: "POST",
-        body: formDataToSend,
-      }).catch(() => {
-        // Silenciar errores - los datos se envían de todas formas
+      const result = generateDiagnosis();
+      
+      // Enviar datos a Formspree
+      const formspreeData = new FormData();
+      formspreeData.append('name', formData.name || '');
+      formspreeData.append('email', formData.email || '');
+      formspreeData.append('phone', formData.phone || '');
+      formspreeData.append('consultation_type', consultationType);
+      formspreeData.append('diagnosis_title', result.title);
+      formspreeData.append('diagnosis_description', result.description);
+      formspreeData.append('required_documents', result.requiredDocuments.join(', '));
+      formspreeData.append('next_steps', result.nextSteps.join(', '));
+      formspreeData.append('important_notes', result.importantNotes.join(', '));
+      
+      // Agregar respuestas del formulario
+      Object.entries(formData).forEach(([key, value]) => {
+        if (!['name', 'email', 'phone'].includes(key)) {
+          formspreeData.append(`answer_${key}`, value);
+        }
       });
+
+      // Enviar a Formspree
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORMSPREE_ID';
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        body: formspreeData,
+      });
+
+      if (response.ok) {
+        setDiagnosis(result);
+        toast.success("¡Diagnóstico generado y enviado por mail!");
+      } else {
+        setDiagnosis(result);
+        toast.success("¡Diagnóstico generado! (Mail pendiente de configurar)");
+      }
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("Error al procesar la consulta.");
+      toast.error("Error al generar el diagnóstico");
+    } finally {
       setIsSubmitting(false);
     }
   };
 
-  return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <Card className="shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-red-600 to-red-700 text-white">
-          <CardTitle>Diagnóstico de Divorcio</CardTitle>
-          <CardDescription className="text-white/80">
-            Paso {step} de {totalSteps}
-          </CardDescription>
-          <Progress value={progressPercentage} className="mt-4 h-2" />
+  if (diagnosis) {
+    return (
+      <Card className="w-full">
+        <CardHeader className="bg-green-50 border-b border-green-200">
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+            <div>
+              <CardTitle className="text-green-900">{diagnosis.title}</CardTitle>
+              <CardDescription className="text-green-700 mt-1">{diagnosis.description}</CardDescription>
+            </div>
+          </div>
         </CardHeader>
-        <CardContent className="pt-6">
-          {/* Step 1: ¿Tiene hijos? */}
-          {step === 1 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                ¿Tiene hijos en común?
-              </h3>
-              <div className="space-y-3">
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="hasChildren"
-                    value="yes"
-                    checked={formData.hasChildren === "yes"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">Sí, tenemos hijos</span>
-                </label>
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="hasChildren"
-                    value="no"
-                    checked={formData.hasChildren === "no"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">No, no tenemos hijos</span>
-                </label>
-              </div>
-            </div>
-          )}
+        <CardContent className="pt-6 space-y-6">
+          <div>
+            <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5" />
+              Documentos Requeridos
+            </h3>
+            <ul className="space-y-2">
+              {diagnosis.requiredDocuments.map((doc, idx) => (
+                <li key={idx} className="flex items-center gap-2 text-gray-700">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                  {doc}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Step 2: ¿Tiene bienes? */}
-          {step === 2 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                ¿Tienen bienes gananciales?
-              </h3>
-              <p className="text-sm text-gray-600 mb-4">
-                (Inmuebles, vehículos, cuentas bancarias, negocios, etc.)
-              </p>
-              <div className="space-y-3">
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="hasAssets"
-                    value="yes"
-                    checked={formData.hasAssets === "yes"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">Sí, tenemos bienes significativos</span>
-                </label>
-                <label className="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <input
-                    type="radio"
-                    name="hasAssets"
-                    value="no"
-                    checked={formData.hasAssets === "no"}
-                    onChange={handleInputChange}
-                    className="w-4 h-4"
-                  />
-                  <span className="ml-3 font-medium">No, pocos o ningún bien</span>
-                </label>
-              </div>
-            </div>
-          )}
+          <div>
+            <h3 className="font-semibold text-lg mb-3">Próximos Pasos</h3>
+            <ol className="space-y-2">
+              {diagnosis.nextSteps.map((step, idx) => (
+                <li key={idx} className="text-gray-700">
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </div>
 
-          {/* Step 3: Edades de los hijos */}
-          {step === 3 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                Edades de los hijos
-              </h3>
-              <textarea
-                name="childrenAges"
-                value={formData.childrenAges}
-                onChange={handleInputChange}
-                placeholder="Ej: 8 años, 12 años, 15 años"
-                className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600 min-h-24"
-              />
-            </div>
-          )}
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h3 className="font-semibold text-blue-900 mb-2">Notas Importantes</h3>
+            <ul className="space-y-1">
+              {diagnosis.importantNotes.map((note, idx) => (
+                <li key={idx} className="text-sm text-blue-800">
+                  • {note}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Step 4: Datos de contacto */}
-          {step === 4 && (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Tus Datos de Contacto
-              </h3>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                <p className="text-sm text-blue-800">
-                  Completa tus Datos de Contacto y recibiras el informe preliminar a fin de coordinar consulta
-                </p>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Nombre completo
-                </label>
-                <input
-                  type="text"
-                  name="contactName"
-                  value={formData.contactName}
-                  onChange={handleInputChange}
-                  placeholder="Tu nombre"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="contactEmail"
-                  value={formData.contactEmail}
-                  onChange={handleInputChange}
-                  placeholder="tu@email.com"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Teléfono / WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  name="contactPhone"
-                  value={formData.contactPhone}
-                  onChange={handleInputChange}
-                  placeholder="Tu teléfono"
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-red-600"
-                />
-              </div>
-
-              {/* Términos y Condiciones */}
-              <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4 mt-6">
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={acceptedTerms}
-                    onChange={(e) => setAcceptedTerms(e.target.checked)}
-                    className="w-5 h-5 mt-1 rounded border-gray-300"
-                  />
-                  <span className="text-sm text-gray-700">
-                    Acepto la <a href="/terms" target="_blank" className="text-blue-600 hover:underline font-semibold">Política de Privacidad y Términos y Condiciones</a>. Entiendo que mis datos serán utilizados como información de contacto para procesar mi consulta y que puedo solicitar la baja en cualquier momento.
-                  </span>
-                </label>
-              </div>
-
-              {/* Navigation Buttons for Step 4 */}
-              <div className="flex gap-3 mt-8 pt-6 border-t">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handlePrev}
-                  className="flex items-center gap-2"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                  Anterior
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={isSubmitting || !acceptedTerms}
-                  className="ml-auto bg-red-600 hover:bg-red-700"
-                  title={!acceptedTerms ? "Debes aceptar los términos y condiciones" : ""}
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Consulta"}
-                </Button>
-              </div>
-            </form>
-          )}
-
-          {/* Step 5: Diagnóstico */}
-          {step === 5 && diagnosis && (
-            <div className="space-y-6">
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-green-900 text-lg mb-2">
-                      {diagnosis.title}
-                    </h3>
-                    <p className="text-green-800 font-medium">
-                      Tiempo estimado: {diagnosis.estimatedTime}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-3">Documentación Requerida:</h4>
-                <ul className="space-y-2">
-                  {diagnosis.requiredDocuments.map((doc, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700">
-                      <span className="text-red-600 font-bold">•</span>
-                      <span>{doc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-3">Próximos Pasos:</h4>
-                <ol className="space-y-2">
-                  {diagnosis.nextSteps.map((step, idx) => (
-                    <li key={idx} className="text-gray-700">
-                      {step}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              {diagnosis.importantNotes.length > 0 && (
-                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-yellow-900 mb-2">Puntos Importantes:</h4>
-                      <ul className="space-y-1">
-                        {diagnosis.importantNotes.map((note, idx) => (
-                          <li key={idx} className="text-yellow-800 text-sm">
-                            • {note}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-sm text-blue-800">
-                  <strong>Próximo paso:</strong> Nos contactaremos a través de email y WhatsApp para coordinar tu consulta inicial.
-                </p>
-              </div>
-
-              {/* Navigation Buttons for Step 5 */}
-              <div className="flex gap-3 mt-8 pt-6 border-t">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handleReset}
-                  className="ml-auto"
-                >
-                  Volver al Inicio
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation Buttons for Steps 1-3 */}
-          {step !== 4 && step !== 5 && (
-            <div className="flex gap-3 mt-8 pt-6 border-t">
-              <Button
-                variant="outline"
-                onClick={handlePrev}
-                disabled={step === 1}
-                className="flex items-center gap-2"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                Anterior
-              </Button>
-              <Button
-                onClick={handleNext}
-                className="ml-auto flex items-center gap-2 bg-red-600 hover:bg-red-700"
-              >
-                Siguiente
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-            </div>
-          )}
+          <Button
+            onClick={() => {
+              setDiagnosis(null);
+              setStep(1);
+              setFormData({});
+            }}
+            className="w-full"
+            variant="outline"
+          >
+            Hacer otro diagnóstico
+          </Button>
         </CardContent>
       </Card>
-    </div>
-  );
+    );
+  }
+
+  if (step <= questions.length) {
+    const question = questions[step - 1];
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <Progress value={progressPercentage} className="mb-4" />
+          <CardTitle>Pregunta {step} de {questions.length}</CardTitle>
+          <CardDescription>{question.label}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            {question.options.map((option) => (
+              <label key={option.value} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                <input
+                  type="radio"
+                  name={question.name}
+                  value={option.value}
+                  checked={formData[question.name] === option.value}
+                  onChange={(e) => handleInputChange(question.name, e.target.value)}
+                  className="w-4 h-4"
+                />
+                <span className="ml-3 text-gray-700">{option.label}</span>
+              </label>
+            ))}
+          </div>
+
+          <div className="flex gap-3 pt-4">
+            <Button
+              onClick={handlePrev}
+              variant="outline"
+              disabled={step === 1}
+              className="flex-1"
+            >
+              <ChevronLeft className="w-4 h-4 mr-2" />
+              Anterior
+            </Button>
+            <Button
+              onClick={handleNext}
+              className="flex-1"
+            >
+              Siguiente
+              <ChevronRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (step === totalSteps) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <Progress value={progressPercentage} className="mb-4" />
+          <CardTitle>Tus Datos de Contacto</CardTitle>
+          <CardDescription>Para enviarte el diagnóstico y asesoramiento</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Nombre Completo</label>
+            <input
+              type="text"
+              value={formData.name || ""}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Email</label>
+            <input
+              type="email"
+              value={formData.email || ""}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Teléfono</label>
+            <input
+              type="tel"
+              value={formData.phone || ""}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="+54 9 11 1234-5678"
+            />
+          </div>
+
+          <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(e) => setAcceptedTerms(e.target.checked)}
+              className="w-4 h-4"
+            />
+            <span className="ml-3 text-sm text-gray-700">
+              Acepto recibir asesoramiento y aceptó los términos de privacidad
+            </span>
+          </label>
+
+          <div className="flex gap-3 pt-4">
+            <Button
+              onClick={handlePrev}
+              variant="outline"
+              className="flex-1"
+            >
+              <ChevronLeft className="w-4 h-4 mr-2" />
+              Anterior
+            </Button>
+            <Button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="flex-1 bg-green-600 hover:bg-green-700"
+            >
+              {isSubmitting ? "Procesando..." : "Obtener Diagnóstico"}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return null;
 }

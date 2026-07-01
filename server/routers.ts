@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { saveSuccessionConsultation, saveDivorceConsultation } from "./db";
+import { saveSuccessionConsultation, saveDivorceConsultation, saveAppointment, getAppointmentsByDateAndTime } from "./db";
 
 export const appRouter = router({
   system: systemRouter,
@@ -77,6 +77,42 @@ export const appRouter = router({
           return { success: true };
         } catch (error) {
           console.error('Error guardando consulta de divorcio:', error);
+          return { success: false, error: String(error) };
+        }
+      }),
+
+    // Guardar cita agendada
+    saveAppointment: publicProcedure
+      .input(z.object({
+        consultationType: z.string(),
+        clientName: z.string(),
+        clientEmail: z.string(),
+        clientPhone: z.string(),
+        appointmentDate: z.string(),
+        appointmentTime: z.string(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          // Verificar disponibilidad
+          const existing = await getAppointmentsByDateAndTime(input.appointmentDate, input.appointmentTime);
+          if (existing.length > 0) {
+            return { success: false, error: "Este horario ya no está disponible" };
+          }
+
+          await saveAppointment({
+            consultationType: input.consultationType,
+            clientName: input.clientName,
+            clientEmail: input.clientEmail,
+            clientPhone: input.clientPhone,
+            appointmentDate: input.appointmentDate,
+            appointmentTime: input.appointmentTime,
+            status: "confirmed",
+            notes: input.notes || null,
+          });
+          return { success: true };
+        } catch (error) {
+          console.error('Error guardando cita:', error);
           return { success: false, error: String(error) };
         }
       }),
