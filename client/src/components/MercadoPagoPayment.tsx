@@ -52,6 +52,23 @@ export default function MercadoPagoPayment({
       const data = await response.json();
 
       if (data.init_point) {
+        // Enviar evento de conversión a Google Ads
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'purchase', {
+            'value': amount,
+            'currency': 'ARS',
+            'transaction_id': `consulta_${Date.now()}`,
+            'items': [
+              {
+                'item_id': 'consulta_legal',
+                'item_name': description,
+                'quantity': 1,
+                'price': amount
+              }
+            ]
+          });
+        }
+        
         // Redirigir a Mercado Pago
         window.location.href = data.init_point;
       } else {

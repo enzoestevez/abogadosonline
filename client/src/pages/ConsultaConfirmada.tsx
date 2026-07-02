@@ -8,14 +8,32 @@ export default function ConsultaConfirmada() {
   const [, navigate] = useLocation();
 
   useEffect(() => {
-    // Evento de conversión para Google Ads
+    // Evento de conversión PURCHASE para Google Ads cuando la reserva está confirmada
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "conversion", {
-        value: 1200,
+      // Evento principal: purchase (conversión completada)
+      (window as any).gtag("event", "purchase", {
+        value: 50000,
         currency: "ARS",
         transaction_id: `consulta_${Date.now()}`,
+        items: [
+          {
+            item_id: "consulta_legal",
+            item_name: "Consulta Legal Confirmada",
+            quantity: 1,
+            price: 50000
+          }
+        ]
       });
 
+      // Evento de conversión con label específico para Google Ads
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-18190992874/LABEL_PAGO_TURNO",
+        value: 50000,
+        currency: "ARS",
+        transaction_id: `consulta_${Date.now()}`
+      });
+
+      // Evento de page view
       (window as any).gtag("event", "page_view", {
         page_title: "Consulta Confirmada",
         page_path: "/consulta-confirmada",

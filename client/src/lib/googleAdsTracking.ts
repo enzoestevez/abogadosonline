@@ -34,9 +34,18 @@ export const trackDiagnosticoSubmission = (formData?: Record<string, any>) => {
  */
 export const trackWhatsAppClick = (source?: string) => {
   if (typeof window !== "undefined" && window.gtag) {
+    // Send outbound click event
     window.gtag("event", "click", {
-      event_category: "whatsapp",
+      event_category: "engagement",
       event_label: `whatsapp_click_${source || "general"}`,
+    });
+    
+    // Send outbound_click event for Google Ads
+    window.gtag("event", "outbound_click", {
+      event_category: "engagement",
+      event_label: "whatsapp_contact",
+      value: 0,
+      currency: "ARS"
     });
     
     // Also send conversion event

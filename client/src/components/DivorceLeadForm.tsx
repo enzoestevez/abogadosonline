@@ -325,7 +325,7 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
       });
 
       // Enviar a Formspree
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORMSPREE_ID';
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'https://formspree.io/f/xnjkbryp';
       const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         body: formspreeData,
@@ -334,9 +334,33 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
       if (response.ok) {
         setDiagnosis(result);
         toast.success("¡Diagnóstico generado y enviado por mail!");
+        
+        // Enviar evento de conversión a Google Ads
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', {
+            'value': 0,
+            'currency': 'ARS',
+            'lead_type': consultationType,
+            'client_name': formData.name,
+            'client_email': formData.email,
+            'client_phone': formData.phone
+          });
+        }
       } else {
         setDiagnosis(result);
         toast.success("¡Diagnóstico generado! (Mail pendiente de configurar)");
+        
+        // Enviar evento de conversión a Google Ads incluso si falla el mail
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', {
+            'value': 0,
+            'currency': 'ARS',
+            'lead_type': consultationType,
+            'client_name': formData.name,
+            'client_email': formData.email,
+            'client_phone': formData.phone
+          });
+        }
       }
     } catch (error) {
       toast.error("Error al generar el diagnóstico");
