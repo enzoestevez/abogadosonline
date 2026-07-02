@@ -325,7 +325,7 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
       });
 
       // Enviar a Formspree
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'https://formspree.io/f/xnjkbryp';
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'xnjkbryp';
       const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         body: formspreeData,
