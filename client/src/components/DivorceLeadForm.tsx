@@ -3,7 +3,9 @@ import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { trpc } from "@/lib/trpc";
 
 interface FormData {
   [key: string]: string;
@@ -34,7 +36,7 @@ const consultationQuestions: Record<string, Array<{
       options: [
         { value: "mutual", label: "Divorcio por mutuo acuerdo" },
         { value: "contested", label: "Divorcio contencioso" },
-        { value: "express", label: "Divorcio exprés" }
+        { value: "uncertain", label: "No estoy seguro, necesito asesoramiento" }
       ]
     },
     {
@@ -55,91 +57,29 @@ const consultationQuestions: Record<string, Array<{
       ]
     }
   ],
-  alimentos: [
+  inmobiliario: [
+    {
+      name: "advice",
+      label: "¿En qué necesita asesoramiento inmobiliario?",
+      options: [
+        { value: "contract_review", label: "Revisión de contrato" },
+        { value: "purchase", label: "Compraventa de un inmueble" },
+        { value: "eviction", label: "Desalojo" },
+        { value: "usurpation", label: "Usurpación o recuperación de un inmueble" },
+        { value: "possession", label: "Posesión, prescripción adquisitiva (usucapión) o conflictos de dominio" },
+        { value: "titling", label: "Escrituración o regularización de títulos" }
+      ]
+    }
+  ],
+  cuota_alimentaria: [
     {
       name: "situation",
       label: "¿Cuál es tu situación?",
       options: [
-        { value: "claim", label: "Reclamar pensión alimenticia" },
-        { value: "modify", label: "Modificar pensión existente" },
-        { value: "suspend", label: "Suspender/Eliminar pensión" }
-      ]
-    },
-    {
-      name: "children",
-      label: "¿Cuántos hijos menores hay?",
-      options: [
-        { value: "one", label: "1 hijo" },
-        { value: "two", label: "2 hijos" },
-        { value: "more", label: "Más de 2 hijos" }
-      ]
-    },
-    {
-      name: "income",
-      label: "¿Conoces el ingreso del obligado?",
-      options: [
-        { value: "yes", label: "Sí, aproximadamente" },
-        { value: "no", label: "No, necesito investigar" },
-        { value: "uncertain", label: "No estoy seguro" }
-      ]
-    }
-  ],
-  custodia: [
-    {
-      name: "type",
-      label: "¿Qué tipo de custodia buscas?",
-      options: [
-        { value: "shared", label: "Custodia compartida" },
-        { value: "exclusive", label: "Custodia exclusiva" },
-        { value: "modify", label: "Modificar custodia existente" }
-      ]
-    },
-    {
-      name: "children",
-      label: "¿Cuántos hijos menores hay?",
-      options: [
-        { value: "one", label: "1 hijo" },
-        { value: "two", label: "2 hijos" },
-        { value: "more", label: "Más de 2 hijos" }
-      ]
-    },
-    {
-      name: "agreement",
-      label: "¿Hay acuerdo con el otro progenitor?",
-      options: [
-        { value: "yes", label: "Sí, hay acuerdo" },
-        { value: "partial", label: "Acuerdo parcial" },
-        { value: "no", label: "No hay acuerdo" }
-      ]
-    }
-  ],
-  inmobiliario: [
-    {
-      name: "issue",
-      label: "¿Cuál es el problema inmobiliario?",
-      options: [
-        { value: "contract", label: "Revisión de contrato" },
-        { value: "boleto", label: "Boleto de compraventa" },
-        { value: "eviction", label: "Desalojo" },
-        { value: "dispute", label: "Disputa de propiedad" }
-      ]
-    },
-    {
-      name: "stage",
-      label: "¿En qué etapa está el conflicto?",
-      options: [
-        { value: "early", label: "Etapa temprana" },
-        { value: "negotiation", label: "En negociación" },
-        { value: "legal", label: "Ya en proceso legal" }
-      ]
-    },
-    {
-      name: "urgency",
-      label: "¿Cuál es tu nivel de urgencia?",
-      options: [
-        { value: "immediate", label: "Inmediato" },
-        { value: "soon", label: "Próximas semanas" },
-        { value: "planning", label: "Planificación" }
+        { value: "reclaim", label: "Reclamar cuota alimentaria" },
+        { value: "modify", label: "Modificar cuota existente" },
+        { value: "non_payment", label: "Incumplimiento de pago" },
+        { value: "cessation", label: "Cese de cuota alimentaria" }
       ]
     }
   ]
@@ -152,6 +92,9 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [, navigate] = useLocation();
+  const submitDivorceMutation = trpc.forms.submitDivorce.useMutation();
+  const saveDiagnosticMutation = trpc.forms.saveDiagnosticAndEmail.useMutation();
 
   const totalSteps = questions.length + 1; // +1 para datos de contacto
   const progressPercentage = (step / totalSteps) * 100;
@@ -178,7 +121,23 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
     const diagnoses: Record<string, DiagnosisResult> = {
       divorcios: {
         title: "Diagnóstico de Divorcio",
-        description: `Tipo: ${formData.type}, ${formData.children === "yes" ? "con hijos" : "sin hijos"}, ${formData.assets !== "no" ? "con bienes" : "sin bienes"}.`,
+        description: `Señún sus respuestas, será necesario analizar las particularidades de su situación familiar y patrimonial para determinar el procedimiento más adecuado y los aspectos que deberán resolverse durante el proceso de divorcio. ${
+          formData.type === "mutual"
+            ? "Al existir acuerdo entre las partes, el proceso suele ser más ágil. Durante la consulta analizaremos los términos del convenio, incluyendo el cuidado de los hijos, los alimentos, el régimen de comunicación y la distribución de los bienes, en caso de corresponder."
+            : formData.type === "contested"
+            ? "Al no existir acuerdo entre las partes, será necesario evaluar los puntos en conflicto y definir la estrategia jurídica más adecuada para proteger sus derechos durante el proceso judicial."
+            : "Si ambas partes están de acuerdo en divorciarse y pueden resolver los aspectos legales necesarios, evaluaremos su caso para determinar el procedimiento más adecuado."
+        } ${
+          formData.children === "yes"
+            ? "Cuando existen hijos menores de edad, será necesario analizar las cuestiones relacionadas con el cuidado personal, el régimen de comunicación y la cuota alimentaria, procurando siempre proteger su interés superior."
+            : "Al no existir hijos menores de edad, el proceso se centrará en los aspectos patrimoniales y en los acuerdos o cuestiones que deban resolverse entre los cónyuges."
+        } ${
+          formData.assets === "yes"
+            ? "Será necesario analizar la composición del patrimonio y determinar la forma en que corresponderá su distribución o liquidación, de acuerdo con el régimen patrimonial aplicable y las circunstancias del caso."
+            : formData.assets === "few"
+            ? "Aunque el patrimonio sea reducido, será importante evaluar la titularidad de los bienes y la forma más conveniente de resolver su distribución durante el proceso de divorcio."
+            : "Al no existir bienes para distribuir, el proceso podrá centrarse en las demás cuestiones personales o familiares que deban resolverse, según las particularidades de su caso."
+        }`,
         requiredDocuments: [
           "Partida de matrimonio",
           "Documentos de identidad",
@@ -199,55 +158,21 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
           "Asesoramiento integral en todo el proceso"
         ]
       },
-      alimentos: {
-        title: "Diagnóstico de Pensión Alimenticia",
-        description: `Situación: ${formData.situation}, ${formData.children} menores, ingresos ${formData.income}.`,
-        requiredDocuments: [
-          "Partida de nacimiento de hijos",
-          "Documentos de identidad",
-          "Comprobante de ingresos",
-          "Comprobante de gastos",
-          "Información del obligado (si se conoce)"
-        ],
-        nextSteps: [
-          "1. Cálculo de pensión",
-          "2. Recopilación de pruebas",
-          "3. Presentación de demanda",
-          "4. Trámite judicial",
-          "5. Sentencia y ejecución"
-        ],
-        importantNotes: [
-          "Protegemos los derechos de los menores",
-          "Cálculo justo según ingresos",
-          "Seguimiento de cumplimiento"
-        ]
-      },
-      custodia: {
-        title: "Diagnóstico de Custodia de Hijos",
-        description: `Tipo: ${formData.type}, ${formData.children} menores, acuerdo: ${formData.agreement}.`,
-        requiredDocuments: [
-          "Partida de nacimiento de hijos",
-          "Documentos de identidad de ambos progenitores",
-          "Comprobante de domicilio",
-          "Información sobre vivienda",
-          "Documentos escolares"
-        ],
-        nextSteps: [
-          "1. Análisis de interés superior del menor",
-          "2. Negociación de acuerdo",
-          "3. Presentación ante juzgado",
-          "4. Evaluación de capacidades",
-          "5. Sentencia de custodia"
-        ],
-        importantNotes: [
-          "Prioridad: bienestar del menor",
-          "Custodia compartida es preferida",
-          "Régimen de visitas justo"
-        ]
-      },
       inmobiliario: {
-        title: "Diagnóstico de Conflicto Inmobiliario",
-        description: `Problema: ${formData.issue}, etapa: ${formData.stage}, urgencia: ${formData.urgency}.`,
+        title: "Diagnóstico de Derecho Inmobiliario y Registral",
+        description: `${
+          formData.advice === "contract_review"
+            ? "La revisión preventiva de contratos permite identificar riesgos jurídicos y brindar mayor seguridad antes de asumir obligaciones o firmar un acuerdo."
+            : formData.advice === "purchase"
+            ? "La compraventa de un inmueble requiere un análisis jurídico previo para verificar la situación del bien y brindar mayor seguridad durante la operación."
+            : formData.advice === "eviction"
+            ? "Será necesario analizar la situación del inmueble y el vínculo existente con el ocupante para determinar la vía legal más adecuada para recuperar su posesión."
+            : formData.advice === "usurpation"
+            ? "Cuando un inmueble ha sido ocupado sin autorización, resulta fundamental evaluar los antecedentes del caso para determinar las acciones legales más adecuadas para proteger sus derechos y recuperar la posesión."
+            : formData.advice === "possession"
+            ? "Será necesario analizar los antecedentes de la posesión, la documentación disponible y las circunstancias del caso para evaluar la viabilidad de una acción de usucapión o la defensa de sus derechos sobre el inmueble."
+            : "Analizaremos la situación jurídica del inmueble para determinar los pasos necesarios para regularizar su titularidad y brindar mayor seguridad jurídica sobre el bien."
+        }`,
         requiredDocuments: [
           "Contrato de compraventa",
           "Boleto de compraventa",
@@ -266,6 +191,37 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
           "Protección de tu inversión",
           "Análisis completo de contratos",
           "Defensa de derechos inmobiliarios"
+        ]
+      },
+      cuota_alimentaria: {
+        title: "Diagnóstico de Cuota Alimentaria",
+        description: `${
+          formData.situation === "reclaim"
+            ? "La cuota alimentaria es la obligación legal de contribuir económicamente al sustento de los hijos menores. Analizaremos tu situación para determinar los montos adecuados y el procedimiento más eficiente para reclamar."
+            : formData.situation === "modify"
+            ? "La modificación de cuota alimentaria procede cuando cambian las circunstancias económicas o las necesidades del menor. Evaluaremos los nuevos parámetros para solicitar el ajuste correspondiente."
+            : formData.situation === "non_payment"
+            ? "El incumplimiento de pago de cuota alimentaria es un incumplimiento de obligación legal. Disponemos de herramientas judiciales para exigir el cumplimiento y obtener medidas coercitivas si es necesario."
+            : "El cese de cuota alimentaria procede cuando se cumplen determinadas condiciones legales. Analizaremos tu caso para determinar si es procedente y los pasos a seguir."
+        }`,
+        requiredDocuments: [
+          "Documentos de identidad",
+          "Comprobante de ingresos",
+          "Sentencia de divorcio o acuerdo de separación",
+          "Documentación de cuota actual (si existe)",
+          "Comprobantes de pago o incumplimiento"
+        ],
+        nextSteps: [
+          "1. Análisis de la situación",
+          "2. Cálculo de cuota adecuada",
+          "3. Negociación o demanda",
+          "4. Trámite judicial",
+          "5. Resolución y cumplimiento"
+        ],
+        importantNotes: [
+          "Obligación legal de ambos progenitores",
+          "Protección de derechos del menor",
+          "Herramientas legales para exigir cumplimiento"
         ]
       }
     };
@@ -305,64 +261,39 @@ export default function DivorceLeadForm({ consultationType = "divorcios" }: Divo
     try {
       const result = generateDiagnosis();
       
-      // Enviar datos a Formspree
-      const formspreeData = new FormData();
-      formspreeData.append('name', formData.name || '');
-      formspreeData.append('email', formData.email || '');
-      formspreeData.append('phone', formData.phone || '');
-      formspreeData.append('consultation_type', consultationType);
-      formspreeData.append('diagnosis_title', result.title);
-      formspreeData.append('diagnosis_description', result.description);
-      formspreeData.append('required_documents', result.requiredDocuments.join(', '));
-      formspreeData.append('next_steps', result.nextSteps.join(', '));
-      formspreeData.append('important_notes', result.importantNotes.join(', '));
+      // Guardar diagnóstico en localStorage para mostrar en página de gracias
+      localStorage.setItem('currentDiagnostic', JSON.stringify(result));
       
-      // Agregar respuestas del formulario
-      Object.entries(formData).forEach(([key, value]) => {
-        if (!['name', 'email', 'phone'].includes(key)) {
-          formspreeData.append(`answer_${key}`, value);
-        }
-      });
-
-      // Enviar a Formspree
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'xnjkbryp';
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: 'POST',
-        body: formspreeData,
-      });
-
-      if (response.ok) {
-        setDiagnosis(result);
-        toast.success("¡Diagnóstico generado y enviado por mail!");
-        
-        // Enviar evento de conversión a Google Ads
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'generate_lead', {
-            'value': 0,
-            'currency': 'ARS',
-            'lead_type': consultationType,
-            'client_name': formData.name,
-            'client_email': formData.email,
-            'client_phone': formData.phone
-          });
-        }
-      } else {
-        setDiagnosis(result);
-        toast.success("¡Diagnóstico generado! (Mail pendiente de configurar)");
-        
-        // Enviar evento de conversión a Google Ads incluso si falla el mail
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'generate_lead', {
-            'value': 0,
-            'currency': 'ARS',
-            'lead_type': consultationType,
-            'client_name': formData.name,
-            'client_email': formData.email,
-            'client_phone': formData.phone
-          });
-        }
+      // Enviar evento de conversión a Google Ads
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          'value': 0,
+          'currency': 'ARS',
+          'lead_type': consultationType,
+          'client_name': formData.name,
+          'client_email': formData.email,
+          'client_phone': formData.phone
+        });
       }
+
+      // Guardar diagnóstico en BD (legacy)
+      await submitDivorceMutation.mutateAsync({
+        hasChildren: formData.hasChildren || 'no_especificado',
+        childrenAges: formData.childrenAges || 'no_especificado',
+        hasAssets: formData.hasAssets || 'no_especificado',
+        contactName: formData.name || '',
+        contactEmail: formData.email || '',
+        contactPhone: formData.phone || '',
+        diagnosis: JSON.stringify(result),
+      });
+
+      setDiagnosis(result);
+      toast.success("¡Diagnóstico generado y enviado por mail!");
+      
+      // Redirigir a página de agradecimiento inmediatamente
+      navigate('/gracias-diagnostico');
     } catch (error) {
+      console.error('Error:', error);
       toast.error("Error al generar el diagnóstico");
     } finally {
       setIsSubmitting(false);

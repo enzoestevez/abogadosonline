@@ -8,11 +8,10 @@ export default function DiagnosticPage() {
 
   const specialties = [
     { id: "sucesiones", label: "Sucesiones" },
-    { id: "herencias", label: "Herencias" },
     { id: "testamentos", label: "Testamentos" },
     { id: "divorcios", label: "Divorcios" },
     { id: "alimentos", label: "Pensión Alimenticia" },
-    { id: "custodia", label: "Custodia de Hijos" },
+    { id: "cuota_alimentaria", label: "Cuota Alimentaria" },
     { id: "patrimonial", label: "Planificación Patrimonial" },
     { id: "fideicomisos", label: "Fideicomisos" },
     { id: "inmobiliario", label: "Servicios Inmobiliarios" },
@@ -41,15 +40,15 @@ export default function DiagnosticPage() {
             ))}
           </TabsList>
 
-          {/* Succession/Herencias/Testamentos/Patrimonial/Fideicomisos Forms */}
-          {["sucesiones", "herencias", "testamentos", "patrimonial", "fideicomisos"].includes(activeTab) && (
+          {/* Succession/Testamentos/Patrimonial/Fideicomisos Forms */}
+          {["sucesiones", "testamentos", "patrimonial", "fideicomisos"].includes(activeTab) && (
             <TabsContent value={activeTab} className="mt-0">
               <SuccessionLeadForm consultationType={activeTab} />
             </TabsContent>
           )}
 
           {/* Divorce/Alimentos/Custodia/Inmobiliario Forms */}
-          {["divorcios", "alimentos", "custodia", "inmobiliario"].includes(activeTab) && (
+          {["divorcios", "alimentos", "cuota_alimentaria", "inmobiliario"].includes(activeTab) && (
             <TabsContent value={activeTab} className="mt-0">
               <DivorceLeadForm consultationType={activeTab} />
             </TabsContent>

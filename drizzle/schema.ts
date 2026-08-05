@@ -76,3 +76,23 @@ export const appointments = mysqlTable("appointments", {
 
 export type Appointment = typeof appointments.$inferSelect;
 export type InsertAppointment = typeof appointments.$inferInsert;
+
+// Tabla para guardar diagnósticos completados
+export const diagnostics = mysqlTable("diagnostics", {
+  id: int("id").autoincrement().primaryKey(),
+  consultationType: varchar("consultationType", { length: 50 }).notNull(),
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  clientEmail: varchar("clientEmail", { length: 320 }).notNull(),
+  clientPhone: varchar("clientPhone", { length: 20 }).notNull(),
+  diagnosisTitle: varchar("diagnosisTitle", { length: 255 }).notNull(),
+  diagnosisDescription: text("diagnosisDescription").notNull(),
+  requiredDocuments: json("requiredDocuments"),
+  nextSteps: json("nextSteps"),
+  importantNotes: json("importantNotes"),
+  formAnswers: json("formAnswers"),
+  emailSent: timestamp("emailSent"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Diagnostic = typeof diagnostics.$inferSelect;
+export type InsertDiagnostic = typeof diagnostics.$inferInsert;

@@ -168,3 +168,20 @@ export async function getAppointmentsByDateAndTime(date: string, time: string) {
     return [];
   }
 }
+
+export async function saveDiagnostic(data: any) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot save diagnostic: database not available");
+    return null;
+  }
+
+  try {
+    const { diagnostics } = await import("../drizzle/schema");
+    const result = await db.insert(diagnostics).values(data);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to save diagnostic:", error);
+    throw error;
+  }
+}

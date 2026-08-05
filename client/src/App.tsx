@@ -20,12 +20,13 @@ import SuccesionesLanding from "./pages/SuccesionesLanding";
 import HereciasLanding from "./pages/HereciasLanding";
 import TestamentoLanding from "./pages/TestamentoLanding";
 import DivorciosLanding from "./pages/DivorciosLanding";
-import CustodiaLanding from "./pages/CustodiaLanding";
+import CuotaAlimentariaLanding from "./pages/CuotaAlimentariaLanding";
 import FideicomisosLanding from "./pages/FideicomisosLanding";
 import PlanificacionPatrimonialLanding from "./pages/PlanificacionPatrimonialLanding";
 import InmobiliarioLanding from "./pages/InmobiliarioLanding";
 import ConsultaConfirmada from "./pages/ConsultaConfirmada";
 import GraciasTurno from "./pages/GraciasTurno";
+import GraciasDiagnostico from "./pages/GraciasDiagnostico";
 
 function App() {
   // make sure to consider if you need authentication for certain routes
@@ -45,14 +46,15 @@ function App() {
           <Route path="/testamentos" component={TestamentoLanding} />
           <Route path="/divorcios" component={DivorciosLanding} />
           <Route path="/alimentos" component={DivorciosLanding} />
-          <Route path="/custodia-hijos" component={CustodiaLanding} />
-          <Route path="/custodia" component={CustodiaLanding} />
+          <Route path="/cuota-alimentaria" component={CuotaAlimentariaLanding} />
+          <Route path="/cuota" component={CuotaAlimentariaLanding} />
           <Route path="/fideicomisos" component={FideicomisosLanding} />
           <Route path="/planificacion-patrimonial" component={PlanificacionPatrimonialLanding} />
           <Route path="/patrimonial" component={PlanificacionPatrimonialLanding} />
           <Route path="/inmobiliario" component={InmobiliarioLanding} />
           <Route path="/consulta-confirmada" component={ConsultaConfirmada} />
           <Route path="/gracias-turno" component={GraciasTurno} />
+          <Route path="/gracias-diagnostico" component={GraciasDiagnostico} />
           <Route path="/contacto" component={HomePage} />
           <Route component={NotFound} />
         </Switch>

@@ -3,7 +3,9 @@ import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { trpc } from "@/lib/trpc";
 
 interface FormData {
   [key: string]: string;
@@ -29,58 +31,11 @@ const consultationQuestions: Record<string, Array<{
 }>> = {
   sucesiones: [
     {
-      name: "situation",
-      label: "¿Cuál es la situación actual de los bienes?",
-      options: [
-        { value: "start", label: "Iniciar desde cero" },
-        { value: "blocked", label: "Sucesión trabada" },
-        { value: "conflict", label: "Conflicto entre herederos" }
-      ]
-    },
-    {
       name: "hasWill",
       label: "¿Existe testamento?",
       options: [
         { value: "yes", label: "Sí" },
         { value: "no", label: "No" }
-      ]
-    },
-    {
-      name: "heirs",
-      label: "¿Cuántos herederos hay aproximadamente?",
-      options: [
-        { value: "one", label: "1 heredero" },
-        { value: "few", label: "2-3 herederos" },
-        { value: "many", label: "Más de 3 herederos" }
-      ]
-    }
-  ],
-  herencias: [
-    {
-      name: "situation",
-      label: "¿Cuál es tu situación con la herencia?",
-      options: [
-        { value: "claim", label: "Reclamar mi parte" },
-        { value: "defend", label: "Defender mis derechos" },
-        { value: "dispute", label: "Resolver disputa" }
-      ]
-    },
-    {
-      name: "timeframe",
-      label: "¿Hace cuánto tiempo falleció el causante?",
-      options: [
-        { value: "recent", label: "Menos de 1 año" },
-        { value: "moderate", label: "1-5 años" },
-        { value: "old", label: "Más de 5 años" }
-      ]
-    },
-    {
-      name: "assets",
-      label: "¿Qué tipo de bienes hay en la herencia?",
-      options: [
-        { value: "property", label: "Inmuebles" },
-        { value: "money", label: "Dinero/Cuentas" },
-        { value: "mixed", label: "Varios tipos" }
       ]
     }
   ],
@@ -95,12 +50,13 @@ const consultationQuestions: Record<string, Array<{
       ]
     },
     {
-      name: "complexity",
-      label: "¿Cuál es la complejidad de tu patrimonio?",
+      name: "assets",
+      label: "¿Qué bienes desea incluir en su planificación?",
       options: [
-        { value: "simple", label: "Patrimonio simple" },
-        { value: "moderate", label: "Patrimonio moderado" },
-        { value: "complex", label: "Patrimonio complejo" }
+        { value: "one_property", label: "Un inmueble" },
+        { value: "multiple_properties", label: "Varios inmuebles" },
+        { value: "mixed_assets", label: "Inmuebles, vehículos e inversiones" },
+        { value: "business", label: "Empresa o participación societaria" }
       ]
     },
     {
@@ -119,26 +75,17 @@ const consultationQuestions: Record<string, Array<{
       label: "¿Cuál es tu objetivo principal?",
       options: [
         { value: "protect", label: "Proteger patrimonio" },
-        { value: "optimize", label: "Optimizar impuestos" },
         { value: "plan", label: "Planificar sucesión" }
       ]
     },
     {
-      name: "assetType",
-      label: "¿Qué tipo de activos tienes?",
+      name: "assets",
+      label: "¿Qué bienes desea incluir en su planificación?",
       options: [
         { value: "real_estate", label: "Inmuebles" },
-        { value: "business", label: "Negocio/Empresa" },
-        { value: "mixed", label: "Varios tipos" }
-      ]
-    },
-    {
-      name: "urgency",
-      label: "¿Cuál es tu nivel de urgencia?",
-      options: [
-        { value: "immediate", label: "Inmediato" },
-        { value: "soon", label: "Próximos meses" },
-        { value: "planning", label: "Planificación a largo plazo" }
+        { value: "business", label: "Empresa o participación societaria" },
+        { value: "investments", label: "Inversiones, cuentas o ahorros" },
+        { value: "mixed", label: "Un patrimonio con distintos tipos de bienes" }
       ]
     }
   ],
@@ -160,15 +107,6 @@ const consultationQuestions: Record<string, Array<{
         { value: "shares", label: "Acciones/Participaciones" },
         { value: "mixed", label: "Varios tipos" }
       ]
-    },
-    {
-      name: "complexity",
-      label: "¿Necesitas estructura compleja?",
-      options: [
-        { value: "simple", label: "Estructura simple" },
-        { value: "moderate", label: "Estructura moderada" },
-        { value: "complex", label: "Estructura compleja" }
-      ]
     }
   ]
 };
@@ -180,6 +118,9 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [, navigate] = useLocation();
+  const submitSuccessionMutation = trpc.forms.submitSuccession.useMutation();
+  const saveDiagnosticMutation = trpc.forms.saveDiagnosticAndEmail.useMutation();
 
   const totalSteps = questions.length + 1; // +1 para datos de contacto
   const progressPercentage = (step / totalSteps) * 100;
@@ -206,11 +147,11 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
     const diagnoses: Record<string, DiagnosisResult> = {
       sucesiones: {
         title: "Diagnóstico de Sucesión",
-        description: `Basado en tu situación (${formData.situation}), ${formData.hasWill === "yes" ? "con testamento" : "sin testamento"}, con ${formData.heirs} herederos.`,
+        description: `${formData.hasWill === "yes" ? "Según su situación, al existir un testamento, será necesario analizar la validez y el alcance del mismo, así como verificar si sus disposiciones respetan las porciones de distribución de bienes legalmente protegidas. En la consulta evaluaremos cómo ello impacta en la sucesión. El procedimiento es iniciar una sucesión testamentaria a fin de que se declare válido el mismo." : "Según su situación, al no existir testamento, será necesario analizar quiénes tienen derecho a heredar, el vínculo con el causante (persona fallecida), los bienes que integran la herencia y la forma en que ésta se distribuirá conforme a la ley. El procedimiento es iniciar una sucesión ab-intestato."}`,
         requiredDocuments: [
           "Certificado de defunción",
           formData.hasWill === "yes" ? "Testamento original" : "Documentos de identidad",
-          "Comprobante de domicilio",
+          "Certificados de Nacimiento y Matrimonio en caso de estar casado el causante",
           "Documentos de bienes"
         ],
         nextSteps: [
@@ -221,38 +162,28 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
           "5. Distribución de bienes"
         ],
         importantNotes: [
-          "Plazo estimado: 6-24 meses",
+          "Plazo estimado: 3 meses hasta la Declaratoria de Herederos. Distribución dependerá del acuerdo o no entre los herederos",
           "Se requiere asesoramiento especializado",
           "Costos varían según complejidad"
         ]
       },
-      herencias: {
-        title: "Diagnóstico de Herencia",
-        description: `Tu situación: ${formData.situation}, con bienes de tipo ${formData.assets}.`,
-        requiredDocuments: [
-          "Certificado de defunción",
-          "Documentos de identidad",
-          "Documentos de los bienes",
-          "Comprobante de vínculo hereditario"
-        ],
-        nextSteps: [
-          "1. Análisis de derechos hereditarios",
-          "2. Recopilación de pruebas",
-          "3. Negociación o litigio",
-          "4. Resolución y distribución"
-        ],
-        importantNotes: [
-          "Protegemos tus derechos hereditarios",
-          "Experiencia en conflictos familiares",
-          "Asesoramiento integral"
-        ]
-      },
       testamentos: {
         title: "Diagnóstico de Testamento",
-        description: `Necesitas ${formData.need} un testamento con patrimonio ${formData.complexity}.`,
-        requiredDocuments: [
+        description: `${
+          formData.need === "create"
+            ? "La elaboración de un testamento permite organizar anticipadamente la transmisión de su patrimonio y brindar mayor seguridad jurídica a sus herederos y beneficiarios."
+            : formData.need === "modify"
+            ? "El testamento puede modificarse o incluso revocarse, total o parcialmente, mientras el testador conserve su capacidad. Durante la consulta analizaremos las disposiciones testamentarias vigentes y los cambios que desea realizar para que reflejen su voluntad y se adecuen a su situación familiar y patrimonial actual."
+            : "Realizaremos un análisis jurídico del testamento para verificar su validez, su alcance y si sus disposiciones cumplen con los requisitos previstos por la legislación vigente."
+        }`,
+        requiredDocuments: formData.need === "modify" ? [
+          "Datos del testador",
+          "Testamento en caso de existir uno previo",
+          "Información de herederos y beneficiarios",
+          "Información de bienes"
+        ] : [
           "Identificación",
-          "Documentos de bienes",
+          "Certificados de Nacimiento y Matrimonio en caso de estar casado el causante",
           "Información de herederos",
           "Datos de beneficiarios"
         ],
@@ -270,7 +201,19 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
       },
       patrimonial: {
         title: "Diagnóstico de Planificación Patrimonial",
-        description: `Tu objetivo: ${formData.goal}, con activos ${formData.assetType}.`,
+        description: `Señún sus respuestas, será necesario realizar un análisis integral de su situación patrimonial, familiar y de sus objetivos, a fin de diseñar una estrategia jurídica que proteja su patrimonio y le permita planificar su transmisión de manera segura y eficiente. ${
+          formData.goal === "protect"
+            ? "La protección patrimonial permite organizar sus bienes para reducir riesgos jurídicos y brindar mayor seguridad a su patrimonio y a su familia. Durante la consulta evaluaremos las herramientas legales más adecuadas para su situación."
+            : "La planificación sucesoria permite anticipar la transmisión del patrimonio, reducir futuros conflictos y organizar la distribución de los bienes de acuerdo con sus objetivos y la normativa aplicable."
+        } ${
+          formData.assets === "real_estate"
+            ? "Será necesario analizar la situación jurídica de sus inmuebles y determinar la estrategia patrimonial más conveniente para su administración, protección o futura transmisión."
+            : formData.assets === "business"
+            ? "Cuando el patrimonio incluye una empresa o actividad comercial, resulta conveniente planificar su continuidad y la forma en que será administrada o transmitida en el futuro."
+            : formData.assets === "investments"
+            ? "Al contar con inversiones, cuentas o ahorros, será importante evaluar la mejor forma de administrar y proteger estos activos, así como planificar su transmisión."
+            : "Al contar con distintos tipos de activos, será recomendable realizar una planificación patrimonial integral que contemple la protección, administración y transmisión de cada uno de ellos."
+        }`,
         requiredDocuments: [
           "Inventario de bienes",
           "Documentos de propiedad",
@@ -291,7 +234,19 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
       },
       fideicomisos: {
         title: "Diagnóstico de Fideicomiso",
-        description: `Propósito: ${formData.purpose}, con bienes ${formData.assets}.`,
+        description: `Señún sus respuestas, será necesario analizar su situación patrimonial y los objetivos que desea alcanzar para determinar si el fideicomiso constituye la herramienta jurídica más adecuada y definir la estructura que mejor se adapte a sus necesidades. ${
+          formData.purpose === "inheritance"
+            ? "El fideicomiso puede ser una herramienta útil para organizar la transmisión del patrimonio, brindar mayor previsibilidad y reducir futuros conflictos entre los beneficiarios. Durante la consulta evaluaremos si resulta la alternativa más conveniente para su caso."
+            : formData.purpose === "business"
+            ? "Cuando el patrimonio incluye una actividad empresarial, el fideicomiso puede facilitar la organización, administración y continuidad del negocio. Analizaremos la estructura jurídica más adecuada según sus objetivos."
+            : "El fideicomiso puede ofrecer una herramienta eficaz para organizar y proteger determinados bienes, siempre dentro de los límites previstos por la legislación vigente. Durante la consulta evaluaremos su viabilidad según su situación patrimonial."
+        } ${
+          formData.assets === "property"
+            ? "Será necesario analizar la situación jurídica de los inmuebles y determinar la conveniencia de incorporarlos al fideicomiso de acuerdo con los objetivos planteados."
+            : formData.assets === "shares"
+            ? "Cuando el patrimonio comprende acciones o participaciones societarias, será importante evaluar la estructura societaria y la forma más adecuada de incorporarlas al fideicomiso."
+            : "Al incluir distintos tipos de bienes, será recomendable realizar un análisis integral para definir una estructura fiduciaria que contemple adecuadamente cada activo."
+        }`,
         requiredDocuments: [
           "Documentos de bienes",
           "Identificación de partes",
@@ -347,64 +302,41 @@ export default function SuccessionLeadForm({ consultationType = "sucesiones" }: 
     try {
       const result = generateDiagnosis();
       
-      // Enviar datos a Formspree
-      const formspreeData = new FormData();
-      formspreeData.append('name', formData.name || '');
-      formspreeData.append('email', formData.email || '');
-      formspreeData.append('phone', formData.phone || '');
-      formspreeData.append('consultation_type', consultationType);
-      formspreeData.append('diagnosis_title', result.title);
-      formspreeData.append('diagnosis_description', result.description);
-      formspreeData.append('required_documents', result.requiredDocuments.join(', '));
-      formspreeData.append('next_steps', result.nextSteps.join(', '));
-      formspreeData.append('important_notes', result.importantNotes.join(', '));
+      // Guardar diagnóstico en localStorage para mostrar en página de gracias
+      localStorage.setItem('currentDiagnostic', JSON.stringify(result));
       
-      // Agregar respuestas del formulario
-      Object.entries(formData).forEach(([key, value]) => {
-        if (!['name', 'email', 'phone'].includes(key)) {
-          formspreeData.append(`answer_${key}`, value);
-        }
-      });
-
-      // Enviar a Formspree
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'xnjkbryp';
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: 'POST',
-        body: formspreeData,
-      });
-
-      if (response.ok) {
-        setDiagnosis(result);
-        toast.success("¡Diagnóstico generado y enviado por mail!");
-        
-        // Enviar evento de conversión a Google Ads
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'generate_lead', {
-            'value': 0,
-            'currency': 'ARS',
-            'lead_type': consultationType,
-            'client_name': formData.name,
-            'client_email': formData.email,
-            'client_phone': formData.phone
-          });
-        }
-      } else {
-        setDiagnosis(result);
-        toast.success("¡Diagnóstico generado! (Mail pendiente de configurar)");
-        
-        // Enviar evento de conversión a Google Ads incluso si falla el mail
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'generate_lead', {
-            'value': 0,
-            'currency': 'ARS',
-            'lead_type': consultationType,
-            'client_name': formData.name,
-            'client_email': formData.email,
-            'client_phone': formData.phone
-          });
-        }
+      // Enviar evento de conversión a Google Ads
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          'value': 0,
+          'currency': 'ARS',
+          'lead_type': consultationType,
+          'client_name': formData.name,
+          'client_email': formData.email,
+          'client_phone': formData.phone
+        });
       }
+
+      // Guardar diagnóstico en BD (legacy)
+      await submitSuccessionMutation.mutateAsync({
+        hasWill: formData.hasWill || 'no_especificado',
+        deceasedType: formData.deceasedType || 'no_especificado',
+        maritalStatus: formData.maritalStatus || 'no_especificado',
+        hasChildren: formData.hasChildren || 'no_especificado',
+        heirstAgreement: formData.heirstAgreement || 'no_especificado',
+        heirName: formData.name || '',
+        heirEmail: formData.email || '',
+        heirPhone: formData.phone || '',
+        diagnosis: JSON.stringify(result),
+      });
+
+      setDiagnosis(result);
+      toast.success("¡Diagnóstico generado y enviado por mail!");
+      
+      // Redirigir a página de agradecimiento inmediatamente
+      navigate('/gracias-diagnostico');
     } catch (error) {
+      console.error('Error:', error);
       toast.error("Error al generar el diagnóstico");
     } finally {
       setIsSubmitting(false);

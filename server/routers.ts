@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { saveSuccessionConsultation, saveDivorceConsultation, saveAppointment, getAppointmentsByDateAndTime } from "./db";
+import { saveSuccessionConsultation, saveDivorceConsultation, saveAppointment, getAppointmentsByDateAndTime, saveDiagnostic } from "./db";
 
 export const appRouter = router({
   system: systemRouter,
@@ -195,6 +195,74 @@ export const appRouter = router({
           return { success: true };
         } catch (error) {
           console.error('Error enviando a Formspree:', error);
+          return { success: false, error: String(error) };
+        }
+      }),
+
+    // Guardar diagnóstico y enviar por email
+    saveDiagnosticAndEmail: publicProcedure
+      .input(z.object({
+        consultationType: z.string(),
+        clientName: z.string(),
+        clientEmail: z.string(),
+        clientPhone: z.string(),
+        diagnosisTitle: z.string(),
+        diagnosisDescription: z.string(),
+        requiredDocuments: z.array(z.string()),
+        nextSteps: z.array(z.string()),
+        importantNotes: z.array(z.string()),
+        formAnswers: z.any().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          // Guardar diagnóstico en BD
+          await saveDiagnostic({
+            consultationType: input.consultationType,
+            clientName: input.clientName,
+            clientEmail: input.clientEmail,
+            clientPhone: input.clientPhone,
+            diagnosisTitle: input.diagnosisTitle,
+            diagnosisDescription: input.diagnosisDescription,
+            requiredDocuments: input.requiredDocuments,
+            nextSteps: input.nextSteps,
+            importantNotes: input.importantNotes,
+            formAnswers: input.formAnswers,
+          });
+
+          // Enviar email con Formspree
+          const formData = new FormData();
+          formData.append('name', input.clientName);
+          formData.append('email', input.clientEmail);
+          formData.append('phone', input.clientPhone);
+          formData.append('consultation_type', input.consultationType);
+          formData.append('diagnosis_title', input.diagnosisTitle);
+          formData.append('diagnosis_description', input.diagnosisDescription);
+          formData.append('required_documents', input.requiredDocuments.join(', '));
+          formData.append('next_steps', input.nextSteps.join(', '));
+          formData.append('important_notes', input.importantNotes.join(', '));
+          formData.append('email_type', 'diagnosis_result');
+
+          const response = await fetch('https://formspree.io/f/xpwdkngy', {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (!response.ok) {
+            console.warn('Email send failed but diagnostic saved:', response.status);
+          }
+
+          return { 
+            success: true,
+            diagnostic: {
+              title: input.diagnosisTitle,
+              description: input.diagnosisDescription,
+              requiredDocuments: input.requiredDocuments,
+              nextSteps: input.nextSteps,
+              importantNotes: input.importantNotes,
+            }
+          };
+        } catch (error) {
+          console.error('Error saving diagnostic:', error);
           return { success: false, error: String(error) };
         }
       }),

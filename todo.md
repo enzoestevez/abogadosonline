@@ -109,3 +109,18 @@
 ## ✅ PROYECTO COMPLETADO
 
 Todas las fases han sido completadas exitosamente. La web está lista para publicar.
+
+
+## Phase 13: Arreglo de CORS y Tracking con tRPC
+- [x] Identificar error de URL duplicada en Formspree (CORS bloqueado)
+- [x] Implementar envío de formularios a través de tRPC (backend) en lugar de fetch directo
+- [x] Actualizar SuccessionLeadForm para usar tRPC.forms.submitSuccession
+- [x] Actualizar DivorceLeadForm para usar tRPC.forms.submitDivorce
+- [x] Crear página /gracias-diagnostico con tracking de Google Ads
+- [x] Actualizar página /gracias-turno con evento 'purchase' para conversiones completadas
+- [x] Agregar rutas en App.tsx para las nuevas páginas de agradecimiento
+- [x] Verificar que no hay errores de compilación TypeScript
+- [x] Checkpoint guardado: versión 76ee40fa
+
+- [x] Agregar scroll al tope en ambas páginas de agradecimiento
+- [x] Checkpoint final: versión 291bd9fb
