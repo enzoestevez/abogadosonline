@@ -54,14 +54,7 @@ const landingPages: LandingPageItem[] = [
     path: "/divorcios",
     color: "from-purple-500 to-purple-600"
   },
-  {
-    id: "custodia",
-    title: "Custodia de Hijos",
-    description: "Protección de derechos de menores en conflictos familiares",
-    icon: <Baby className="w-8 h-8" />,
-    path: "/custodia-hijos",
-    color: "from-pink-500 to-pink-600"
-  },
+
   {
     id: "fideicomisos",
     title: "Fideicomisos",

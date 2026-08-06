@@ -1,7 +1,79 @@
 import { Calendar } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 
 export default function CalendarBooking() {
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    // Listener AGRESIVO - captura TODOS los mensajes
+    const handleAllMessages = (event: MessageEvent) => {
+      // Log de TODOS los mensajes (sin filtro de origen)
+      console.log("[MESSAGE] Mensaje recibido de:", event.origin);
+      console.log("[MESSAGE] Contenido:", event.data);
+      console.log("[MESSAGE] Tipo:", typeof event.data);
+
+      // Ahora sí, verificar si viene de ReservaSimple
+      if (event.origin === "https://reservasimple.com" || event.origin.includes("reservasimple")) {
+        console.log("[ReservaSimple] ✅ MENSAJE DE RESERVASIMPLE DETECTADO");
+        console.log("[ReservaSimple] Datos completos:", JSON.stringify(event.data));
+
+        const data = event.data;
+
+        // Detectar confirmación - CUALQUIER indicador
+        const isConfirmed = 
+          data?.type === "booking_completed" ||
+          data?.status === "confirmed" ||
+          data?.event === "booking_success" ||
+          data?.action === "booking_confirmed" ||
+          data?.booking_id !== undefined ||
+          data?.confirmed === true ||
+          data?.success === true ||
+          (typeof data === 'string' && (data.includes('confirmed') || data.includes('success'))) ||
+          (typeof data === 'object' && Object.values(data).some((v: any) => 
+            typeof v === 'string' && (v.includes('confirmed') || v.includes('success'))
+          ));
+
+        if (isConfirmed) {
+          console.log("[ReservaSimple] 🎉 ¡RESERVA CONFIRMADA DETECTADA!");
+
+          // Trackear en Google Ads
+          if (typeof window !== "undefined" && (window as any).gtag) {
+            console.log("[Google Ads] Enviando evento purchase...");
+            (window as any).gtag("event", "purchase", {
+              value: 0,
+              currency: "ARS",
+              transaction_id: data?.booking_id || `reserva_${Date.now()}`,
+              items: [
+                {
+                  item_name: "Consulta Inicial",
+                  item_category: "legal_consultation",
+                },
+              ],
+            });
+          }
+
+          // Redirigir
+          console.log("[Redirect] Redirigiendo a /gracias-turno...");
+          setTimeout(() => {
+            navigate("/gracias-turno");
+            window.scrollTo(0, 0);
+          }, 500);
+        }
+      }
+    };
+
+    // Escuchar TODOS los mensajes
+    window.addEventListener("message", handleAllMessages);
+
+    console.log("[Init] Listener de ReservaSimple inicializado");
+
+    return () => {
+      window.removeEventListener("message", handleAllMessages);
+    };
+  }, [navigate]);
+
   return (
     <section id="agenda-consulta" className="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="container mx-auto px-4">

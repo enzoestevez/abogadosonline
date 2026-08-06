@@ -10,7 +10,7 @@ export default function DiagnosticPage() {
     { id: "sucesiones", label: "Sucesiones" },
     { id: "testamentos", label: "Testamentos" },
     { id: "divorcios", label: "Divorcios" },
-    { id: "alimentos", label: "Pensión Alimenticia" },
+
     { id: "cuota_alimentaria", label: "Cuota Alimentaria" },
     { id: "patrimonial", label: "Planificación Patrimonial" },
     { id: "fideicomisos", label: "Fideicomisos" },
@@ -48,7 +48,7 @@ export default function DiagnosticPage() {
           )}
 
           {/* Divorce/Alimentos/Custodia/Inmobiliario Forms */}
-          {["divorcios", "alimentos", "cuota_alimentaria", "inmobiliario"].includes(activeTab) && (
+          {["divorcios", "cuota_alimentaria", "inmobiliario"].includes(activeTab) && (
             <TabsContent value={activeTab} className="mt-0">
               <DivorceLeadForm consultationType={activeTab} />
             </TabsContent>
