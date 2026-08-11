@@ -23,6 +23,13 @@ interface LandingCalendarProps {
   clientName?: string;
   clientEmail?: string;
   clientPhone?: string;
+  /** Si true, en vez de confirmar la cita directamente, crea una preferencia
+   * de pago en Mercado Pago y redirige al checkout. La cita queda "pending"
+   * hasta que el webhook confirme el pago. */
+  requirePayment?: boolean;
+  paymentAmount?: number;
+  paymentDescription?: string;
+  selectionOnly?: boolean;
 }
 
 export default function LandingCalendar({ 
@@ -30,7 +37,11 @@ export default function LandingCalendar({
   consultationType = "consulta",
   clientName = "",
   clientEmail = "",
-  clientPhone = ""
+  clientPhone = "",
+  requirePayment = false,
+  paymentAmount,
+  paymentDescription,
+  selectionOnly = false,
 }: LandingCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -39,6 +50,7 @@ export default function LandingCalendar({
   const [success, setSuccess] = useState(false);
   
   const saveAppointmentMutation = trpc.forms.saveAppointment.useMutation();
+  const createPreferenceMutation = trpc.payments.createPreference.useMutation();
 
   // Generar próximos 14 días hábiles (Lunes a Viernes)
   const generateAvailableDays = (): CalendarDay[] => {
@@ -92,8 +104,51 @@ export default function LandingCalendar({
     setError(null);
     setSuccess(false);
     
+    if (selectionOnly) {
+      if (onSelectSlot) {
+        onSelectSlot(day.date.toISOString().split("T")[0], time);
+      }
+      return;
+    }
+
+    // Flujo con pago: crear preferencia de Mercado Pago y redirigir al checkout.
+    // La cita queda "pending" hasta que el webhook confirme el pago acreditado;
+    // recién ahí se dispara la conversión, en /gracias-turno.
+    if (requirePayment && clientName && clientEmail && clientPhone) {
+      if (!paymentAmount) {
+        setError("Falta configurar el monto de la seña/consulta");
+        return;
+      }
+      setIsLoading(true);
+      try {
+        const result = await createPreferenceMutation.mutateAsync({
+          consultationType,
+          clientName,
+          clientEmail,
+          clientPhone,
+          appointmentDate: day.date.toISOString().split("T")[0],
+          appointmentTime: time,
+          amount: paymentAmount,
+          description: paymentDescription,
+        });
+
+        if (result.success) {
+          // Redirige fuera del sitio, al checkout de Mercado Pago.
+          window.location.href = result.initPoint;
+        } else {
+          setError(result.error || "Error al iniciar el pago");
+          setIsLoading(false);
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setError(msg);
+        setIsLoading(false);
+      }
+      return;
+    }
+
     // Si tenemos datos de cliente, guardar la cita
-    if (clientName && clientEmail && clientPhone) {
+    if (!requirePayment && clientName && clientEmail && clientPhone) {
       setIsLoading(true);
       try {
         const result = await saveAppointmentMutation.mutateAsync({
@@ -185,13 +240,17 @@ export default function LandingCalendar({
       )}
 
       {/* Selected Summary */}
-      {selectedDate && selectedTime && (success || !clientName) && (
+      {selectedDate && selectedTime && (success || !clientName || (requirePayment && isLoading)) && (
         <Card className={`p-4 ${success ? 'bg-green-50 border-green-200' : 'bg-blue-50 border-blue-200'}`}>
           <p className="text-sm text-gray-600">Cita {success ? 'agendada' : 'seleccionada'} para:</p>
           <p className={`text-lg font-bold ${success ? 'text-green-700' : 'text-blue-700'}`}>
             {currentSelectedDay?.dayName} {currentSelectedDay?.dayNumber} de {currentSelectedDay?.month} a las {selectedTime}
           </p>
-          {isLoading && <p className="text-sm text-gray-500 mt-2">Guardando...</p>}
+          {isLoading && (
+            <p className="text-sm text-gray-500 mt-2">
+              {requirePayment ? "Redirigiendo a Mercado Pago..." : "Guardando..."}
+            </p>
+          )}
         </Card>
       )}
     </div>

@@ -124,3 +124,1971 @@ Todas las fases han sido completadas exitosamente. La web está lista para publi
 
 - [x] Agregar scroll al tope en ambas páginas de agradecimiento
 - [x] Checkpoint final: versión 291bd9fb
+
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest para el flujo de reserva y pago.
+- [ ] Verificar y guardar un checkpoint de la mejora del flujo de reserva.
+
+---
+
+## Cambios solicitados en la sesión actual
+- [ ] Agregar una tercera pantalla de resumen de reserva antes del pago con datos del cliente, fecha, hora y monto de $50.000.
+- [ ] Separar la selección del turno del inicio del pago mediante un botón "Pagar" en la pantalla de resumen.
+- [ ] Corregir el manejo de errores de Mercado Pago para reemplazar `[object object]` por un mensaje claro en castellano.
+- [ ] Verificar redirección a Mercado Pago y retorno a `/gracias-turno` después del pago.
+- [ ] Agregar o actualizar pruebas Vitest

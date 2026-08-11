@@ -125,7 +125,7 @@ export async function saveDivorceConsultation(data: InsertDivorceConsultation) {
   }
 }
 
-export async function saveAppointment(data: any) {
+export async function saveAppointment(data: any): Promise<number | null> {
   const db = await getDb();
   if (!db) {
     console.warn("[Database] Cannot save appointment: database not available");
@@ -134,11 +134,66 @@ export async function saveAppointment(data: any) {
 
   try {
     const { appointments } = await import("../drizzle/schema");
-    const result = await db.insert(appointments).values(data);
-    return result;
+    const result: any = await db.insert(appointments).values(data);
+    // drizzle-orm/mysql2 devuelve [ResultSetHeader, FieldPacket[]]
+    const insertId = result?.[0]?.insertId ?? result?.insertId ?? null;
+    return insertId;
   } catch (error) {
     console.error("[Database] Failed to save appointment:", error);
     throw error;
+  }
+}
+
+export async function getAppointmentById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  try {
+    const { appointments } = await import("../drizzle/schema");
+    const result = await db.select().from(appointments).where(eq(appointments.id, id));
+    return result[0] ?? null;
+  } catch (error) {
+    console.error("[Database] Failed to get appointment by id:", error);
+    return null;
+  }
+}
+
+export async function setAppointmentPreference(id: number, mpPreferenceId: string) {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    const { appointments } = await import("../drizzle/schema");
+    await db.update(appointments).set({ mpPreferenceId }).where(eq(appointments.id, id));
+  } catch (error) {
+    console.error("[Database] Failed to set appointment preference:", error);
+  }
+}
+
+/**
+ * Marca una cita como pagada/confirmada o fallida. Esta función es la
+ * ÚNICA fuente de verdad sobre si un pago se acreditó: la llama
+ * exclusivamente el webhook de Mercado Pago después de validar el pago
+ * directamente contra la API de Mercado Pago (nunca confiar en el
+ * navegador del cliente para esto).
+ */
+export async function updateAppointmentPaymentStatus(params: {
+  appointmentId: number;
+  paymentStatus: "paid" | "failed" | "refunded";
+  mpPaymentId: string;
+}) {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    const { appointments } = await import("../drizzle/schema");
+    await db
+      .update(appointments)
+      .set({
+        paymentStatus: params.paymentStatus,
+        mpPaymentId: params.mpPaymentId,
+        status: params.paymentStatus === "paid" ? "confirmed" : "pending",
+      })
+      .where(eq(appointments.id, params.appointmentId));
+  } catch (error) {
+    console.error("[Database] Failed to update appointment payment status:", error);
   }
 }
 

@@ -3,7 +3,16 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { saveSuccessionConsultation, saveDivorceConsultation, saveAppointment, getAppointmentsByDateAndTime, saveDiagnostic } from "./db";
+import {
+  saveSuccessionConsultation,
+  saveDivorceConsultation,
+  saveAppointment,
+  getAppointmentsByDateAndTime,
+  saveDiagnostic,
+  getAppointmentById,
+  setAppointmentPreference,
+} from "./db";
+import { createPaymentPreference } from "./mercadopago";
 
 export const appRouter = router({
   system: systemRouter,
@@ -265,6 +274,92 @@ export const appRouter = router({
           console.error('Error saving diagnostic:', error);
           return { success: false, error: String(error) };
         }
+      }),
+  }),
+
+  payments: router({
+    // Crea la cita (en estado "pending") + la preferencia de pago de Mercado Pago,
+    // y devuelve el link de checkout al que hay que redirigir al usuario.
+    createPreference: publicProcedure
+      .input(z.object({
+        consultationType: z.string(),
+        clientName: z.string(),
+        clientEmail: z.string(),
+        clientPhone: z.string(),
+        appointmentDate: z.string(),
+        appointmentTime: z.string(),
+        amount: z.number().positive(),
+        description: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          const existing = await getAppointmentsByDateAndTime(input.appointmentDate, input.appointmentTime);
+          if (existing.length > 0) {
+            return { success: false as const, error: "Este horario ya no está disponible" };
+          }
+
+          const appointmentId = await saveAppointment({
+            consultationType: input.consultationType,
+            clientName: input.clientName,
+            clientEmail: input.clientEmail,
+            clientPhone: input.clientPhone,
+            appointmentDate: input.appointmentDate,
+            appointmentTime: input.appointmentTime,
+            status: "pending",
+            paymentStatus: "pending",
+            amount: input.amount,
+            notes: null,
+          });
+
+          if (!appointmentId) {
+            return { success: false as const, error: "No se pudo crear la cita" };
+          }
+
+          // Base pública del sitio (necesaria para que Mercado Pago pueda
+          // redirigir de vuelta y para el webhook). Configurar PUBLIC_SITE_URL
+          // en las variables de entorno de producción.
+          const origin = process.env.PUBLIC_SITE_URL || "";
+          if (!origin) {
+            console.warn("[payments] PUBLIC_SITE_URL no está configurada, back_urls quedarán vacías");
+          }
+
+          const preference = await createPaymentPreference({
+            appointmentId,
+            amount: input.amount,
+            description: input.description || `Consulta legal - ${input.consultationType}`,
+            payerEmail: input.clientEmail,
+            successUrl: `${origin}/gracias-turno?appointment_id=${appointmentId}`,
+            failureUrl: `${origin}/?pago=fallido`,
+            pendingUrl: `${origin}/?pago=pendiente`,
+            notificationUrl: `${origin}/api/mercadopago/webhook`,
+          });
+
+          await setAppointmentPreference(appointmentId, preference.id);
+
+          return { success: true as const, initPoint: preference.init_point, appointmentId };
+        } catch (error) {
+          console.error("Error creando preferencia de pago:", error);
+          return { success: false as const, error: String(error) };
+        }
+      }),
+
+    // Usado por la página de "gracias" para confirmar, ANTES de disparar
+    // la conversión de Google Ads, que el pago realmente se acreditó
+    // (fuente de verdad = nuestra base de datos, actualizada solo por el webhook).
+    getAppointmentStatus: publicProcedure
+      .input(z.object({ appointmentId: z.number() }))
+      .query(async ({ input }) => {
+        const appt = await getAppointmentById(input.appointmentId);
+        if (!appt) return { found: false as const };
+        return {
+          found: true as const,
+          status: appt.status,
+          paymentStatus: appt.paymentStatus,
+          amount: appt.amount,
+          appointmentDate: appt.appointmentDate,
+          appointmentTime: appt.appointmentTime,
+          consultationType: appt.consultationType,
+        };
       }),
   }),
 });

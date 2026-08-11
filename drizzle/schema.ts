@@ -70,6 +70,13 @@ export const appointments = mysqlTable("appointments", {
   appointmentTime: varchar("appointmentTime", { length: 5 }).notNull(), // HH:MM
   status: mysqlEnum("status", ["pending", "confirmed", "completed", "cancelled"]).default("pending").notNull(),
   notes: text("notes"),
+  // --- Pago (Mercado Pago) ---
+  paymentStatus: mysqlEnum("paymentStatus", ["not_required", "pending", "paid", "failed", "refunded"])
+    .default("not_required")
+    .notNull(),
+  amount: int("amount"), // monto en la unidad mínima de la moneda (ARS, sin decimales)
+  mpPreferenceId: varchar("mpPreferenceId", { length: 100 }),
+  mpPaymentId: varchar("mpPaymentId", { length: 100 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
