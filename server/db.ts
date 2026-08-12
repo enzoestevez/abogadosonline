@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import { InsertUser, users } from "../drizzle/schema.js";
+import { ENV } from './_core/env.js';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -91,7 +91,7 @@ export async function getUserByOpenId(openId: string) {
 
 // TODO: add feature queries here as your schema grows.
 
-import { successionConsultations, divorceConsultations, InsertSuccessionConsultation, InsertDivorceConsultation } from "../drizzle/schema";
+import { successionConsultations, divorceConsultations, InsertSuccessionConsultation, InsertDivorceConsultation } from "../drizzle/schema.js";
 
 export async function saveSuccessionConsultation(data: InsertSuccessionConsultation) {
   const db = await getDb();
@@ -133,7 +133,7 @@ export async function saveAppointment(data: any): Promise<number | null> {
   }
 
   try {
-    const { appointments } = await import("../drizzle/schema");
+    const { appointments } = await import("../drizzle/schema.js");
     const result: any = await db.insert(appointments).values(data);
     // drizzle-orm/mysql2 devuelve [ResultSetHeader, FieldPacket[]]
     const insertId = result?.[0]?.insertId ?? result?.insertId ?? null;
@@ -148,7 +148,7 @@ export async function getAppointmentById(id: number) {
   const db = await getDb();
   if (!db) return null;
   try {
-    const { appointments } = await import("../drizzle/schema");
+    const { appointments } = await import("../drizzle/schema.js");
     const result = await db.select().from(appointments).where(eq(appointments.id, id));
     return result[0] ?? null;
   } catch (error) {
@@ -161,7 +161,7 @@ export async function setAppointmentPreference(id: number, mpPreferenceId: strin
   const db = await getDb();
   if (!db) return;
   try {
-    const { appointments } = await import("../drizzle/schema");
+    const { appointments } = await import("../drizzle/schema.js");
     await db.update(appointments).set({ mpPreferenceId }).where(eq(appointments.id, id));
   } catch (error) {
     console.error("[Database] Failed to set appointment preference:", error);
@@ -183,7 +183,7 @@ export async function updateAppointmentPaymentStatus(params: {
   const db = await getDb();
   if (!db) return;
   try {
-    const { appointments } = await import("../drizzle/schema");
+    const { appointments } = await import("../drizzle/schema.js");
     await db
       .update(appointments)
       .set({
@@ -205,7 +205,7 @@ export async function getAppointmentsByDateAndTime(date: string, time: string) {
   }
 
   try {
-    const { appointments } = await import("../drizzle/schema");
+    const { appointments } = await import("../drizzle/schema.js");
     const { and } = await import("drizzle-orm");
     const result = await db
       .select()
@@ -232,7 +232,7 @@ export async function saveDiagnostic(data: any) {
   }
 
   try {
-    const { diagnostics } = await import("../drizzle/schema");
+    const { diagnostics } = await import("../drizzle/schema.js");
     const result = await db.insert(diagnostics).values(data);
     return result;
   } catch (error) {

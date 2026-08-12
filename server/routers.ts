@@ -1,7 +1,7 @@
-import { COOKIE_NAME } from "@shared/const";
-import { getSessionCookieOptions } from "./_core/cookies";
-import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { COOKIE_NAME } from "../shared/const.js";
+import { getSessionCookieOptions } from "./_core/cookies.js";
+import { systemRouter } from "./_core/systemRouter.js";
+import { publicProcedure, router } from "./_core/trpc.js";
 import { z } from "zod";
 import {
   saveSuccessionConsultation,
@@ -11,8 +11,8 @@ import {
   saveDiagnostic,
   getAppointmentById,
   setAppointmentPreference,
-} from "./db";
-import { createPaymentPreference } from "./mercadopago";
+} from "./db.js";
+import { createPaymentPreference } from "./mercadopago.js";
 
 export const appRouter = router({
   system: systemRouter,

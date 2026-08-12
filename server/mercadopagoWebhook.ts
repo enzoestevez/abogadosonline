@@ -1,7 +1,7 @@
 import type { Express, Request, Response } from "express";
-import { getPaymentStatus } from "./mercadopago";
-import { updateAppointmentPaymentStatus, getAppointmentById } from "./db";
-import { sendAppointmentPaidEmail } from "./notifications";
+import { getPaymentStatus } from "./mercadopago.js";
+import { updateAppointmentPaymentStatus, getAppointmentById } from "./db.js";
+import { sendAppointmentPaidEmail } from "./notifications.js";
 
 /**
  * Mercado Pago llama a esta URL (configurada como notification_url al crear
